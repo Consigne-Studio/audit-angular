@@ -1,0 +1,3 @@
+{ "lighthouseVersion": "13.5.0", "finalDisplayedUrl": "https://recette.exemple.fr/accueil",
+  "categories": { "performance": { "score": 0.42 }, "accessibility": { "score": 0.88 }, "best-practices": { "score": 0.96 } },
+  "audits": { "largest-contentful-paint": { "numericValue": 4200 }, "cumulative-layout-shift": { "numericValue": 0.12 }, "total-blocking-time": { "numericValue": 640 }, "first-contentful-paint": { "numericValue": 1900 } } }

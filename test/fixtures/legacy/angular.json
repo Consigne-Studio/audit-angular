@@ -1,0 +1,3 @@
+{ "version": 1, "projects": { "demo": { "projectType": "application", "architect": {
+  "build": { "builder": "@angular-devkit/build-angular:browser", "options": { "polyfills": ["zone.js"] }, "configurations": { "production": { "sourceMap": true, "budgets": [{ "type": "anyComponentStyle", "maximumWarning": "6kb" }] } } },
+  "test": { "builder": "@angular-devkit/build-angular:karma" } } } } }

@@ -1,0 +1,93 @@
+﻿Summary,Description,Priority,Labels,Original Estimate (days),Max Estimate (days)
+[Migration] Montée de version Angular 15 → 22 (7 étape(s) ng update),"Base de calcul : 7 version(s) majeure(s) × 0,5 à 1 j × facteur de taille 1.0",Medium,audit-angular migration,3.5,7
+[Migration] Dépendances bloquantes ou liées à Angular,"Base de calcul : 3 remplacement(s) × 1 à 3 j, 0 montée(s) de bibliothèque × 0,5 à 2 j",Medium,audit-angular migration,3,9
+[Migration] RxJS 6 → 7,"Base de calcul : 0,5 à 2 j × facteur de taille",Medium,audit-angular migration,0.5,2
+[Migration] Passage au constructeur application (esbuild),Base de calcul : migration officielle + correctifs de configuration,Medium,audit-angular migration,0.5,2
+"[Migration] Composants standalone, suppression des NgModules","Base de calcul : migration officielle ; 0,05 à 0,2 j de reprise par module (29)",Medium,audit-angular migration,1.5,6.5
+[Migration] Contrôle de flux @if / @for / @switch,"Base de calcul : migration officielle ; 0,002 à 0,01 j de relecture par occurrence (47)",Medium,audit-angular migration,0.5,0.5
+"[Migration] Entrées, sorties et requêtes en signals","Base de calcul : migrations officielles ; 0,005 à 0,03 j par décorateur (70)",Medium,audit-angular migration,0.5,2
+[Migration] Injection avec inject(),Base de calcul : migration officielle (136 paramètres),Medium,audit-angular migration,0.5,1
+"[Migration] Passage sans zone.js (OnPush, signals, recette)","Base de calcul : 143 composant(s) à passer en OnPush × 0,03 à 0,08 j, 1 usage(s) de NgZone × 0,1 à 0,3 j, + 1 à 2 j de recette",Medium,audit-angular migration,5.5,13.5
+[Migration] Tests unitaires Karma → Vitest,Base de calcul : 0 fichier(s) de test,Medium,audit-angular migration,0.5,2
+[Migration] Tests de bout en bout Protractor → Playwright,Base de calcul : 0 fichier(s) e2e,Medium,audit-angular migration,1,3
+[Migration] Passage à ESLint (angular-eslint),Base de calcul : schematic + correction des règles,Medium,audit-angular migration,0.5,1.5
+[Migration] Mode strict TypeScript,"Base de calcul : 0,5 à 1,2 j × facteur de taille + 0,01 à 0,03 j par any (180)",Medium,audit-angular migration,2.5,6.5
+[Migration] Recette de non-régression et livraison,Base de calcul : forfait selon le nombre de lots (13),Medium,audit-angular migration,2.5,5.5
+[SEC-101] 100 vulnérabilité(s) critique(s) ou haute(s) dans les dépendances,"npm audit : 10 critique(s), 90 haute(s), 42 modérée(s), 12 faible(s).
+Action : Appliquer les correctifs disponibles (`npm audit fix`, sans --force) ; pour les autres, la montée de version d'Angular et des bibliothèques est le correctif.
+Emplacements : form-data, handlebars, loader-utils, piscina, proxy-addr, request, shell-quote, socket.io-parser, tar, websocket-driver",Highest,audit-angular securite,,
+[VER-001] Angular 15 n'est plus supporté,"Version installée : 15.2.10. Plus aucun correctif de sécurité officiel. Écart avec la dernière version : 7 version(s) majeure(s).
+Action : Planifier la montée vers Angular 22, une version majeure à la fois (`ng update`), voir l'estimation.",Highest,audit-angular versions,,
+[DEP-angular2-chartjs] angular2-chartjs n'est plus maintenu,"angular2-chartjs 0.4.1
+Action : Remplacer par ng2-charts ou une intégration directe de Chart.js.",High,audit-angular versions,,
+[DEP-node-sass] node-sass est abandonné,"node-sass 4.14.1
+Action : Utiliser sass (Dart Sass), déjà inclus dans le CLI Angular.",High,audit-angular versions,,
+[DEP-protractor] Protractor est arrêté depuis 2023,"protractor 7.0.0 (développement)
+Action : Réécrire les tests de bout en bout avec Playwright ou Cypress.",High,audit-angular qualite,,
+[DEP-rxjs-compat] rxjs-compat maintient l'API de RxJS 5,"rxjs-compat 6.3.0
+Action : Réécrire les imports et opérateurs, puis supprimer rxjs-compat.",High,audit-angular versions,,
+[DEP-tslint] TSLint est abandonné depuis 2019,"tslint 6.1.3 (développement)
+Action : Passer à ESLint avec angular-eslint (`ng add @angular-eslint/schematics`).",High,audit-angular qualite,,
+"[MIG-001] 29 NgModule(s), 144 composant(s) non standalone","0 % des composants sont standalone.
+Action : Migration officielle : `ng generate @angular/core:standalone` (3 passes), puis supprimer les modules vides.
+Emplacements : src/app/@core/core.module.ts:148, src/app/@core/mock/mock-data.module.ts:48, src/app/@theme/theme.module.ts:73, src/app/app-routing.module.ts:56, src/app/app.module.ts:24, src/app/pages/charts/charts-routing.module.ts:24, src/app/pages/charts/charts.module.ts:52, src/app/pages/dashboard/dashboard.module.ts:34, src/app/pages/e-commerce/e-commerce.module.ts:59, src/app/pages/editors/editors-routing.module.ts:20",High,audit-angular migration,,
+[PER-001] Constructeur webpack historique (browser),"builder : @angular-devkit/build-angular:browser. Le constructeur « application » (esbuild + Vite) est le défaut depuis Angular 17 : builds 2 à 4 fois plus rapides selon l'équipe Angular.
+Action : Migration officielle : `ng update @angular/cli --name use-application-builder`.",High,audit-angular performance,,
+[QUA-001] Mode strict TypeScript désactivé,"strict : false, noImplicitAny : false.
+Action : Activer `strict` progressivement (d'abord noImplicitAny et strictNullChecks, dossier par dossier).",High,audit-angular qualite,,
+[QUA-002] Vérification stricte des gabarits désactivée,"angularCompilerOptions.strictTemplates n'est pas activé : les erreurs de type dans les gabarits passent la compilation.
+Action : Activer `strictTemplates` et corriger les erreurs remontées.",High,audit-angular qualite,,
+[QUA-003] 180 type(s) any,"12.6 pour 1 000 lignes de TypeScript.
+Action : Remplacer par des types métier ou unknown, interdire avec @typescript-eslint/no-explicit-any.
+Emplacements : src/app/@core/data/earning.ts:18, src/app/@core/data/smart-table.ts:3, src/app/@core/mock/earning.service.ts:82, src/app/@core/mock/profit-bar-animation-chart.service.ts:8, src/app/@core/mock/users.service.ts:42, src/app/@core/module-import-guard.ts:1, src/app/@core/utils/analytics.service.ts:6, src/app/@core/utils/layout.service.ts:17, src/app/@core/utils/layout.service.ts:21, src/app/@core/utils/state.service.ts:10",High,audit-angular qualite,,
+[QUA-008] 0 % des fichiers de composants ont un test,"139 fichier(s) de composants sans fichier .spec.ts voisin (présence seulement : la couverture réelle demande d'exécuter les tests).
+Action : Tester d'abord les composants à logique ; viser les écrans critiques avant la montée de version.",High,audit-angular qualite,,
+[SEC-008] 1 clé(s) d'API Google dans le code,"Une clé Google côté navigateur est publique par nature ; le risque est une clé sans restriction, utilisable par n'importe qui à vos frais. Valeur masquée dans ce rapport.
+Action : Vérifier dans la console Google Cloud que la clé est restreinte par référent HTTP et par API ; la passer en configuration d'environnement.
+Emplacements : src/app/app.module.ts:38",High,audit-angular securite,,
+[VER-003] Paquets Angular de versions majeures différentes,"@angular/google-maps 12.2.13
+Action : Aligner tous les paquets @angular/* sur la même version majeure (`ng update`).",High,audit-angular versions,,
+[VER-010] RxJS 6.6.2 : Angular demande RxJS 7 depuis la v14,"Montée RxJS 6 → 7 obligatoire avant Angular 15+ (toPromise déprécié, types plus stricts).
+Action : Monter RxJS en 7.8, remplacer toPromise() par firstValueFrom / lastValueFrom.",High,audit-angular versions,,
+[DEP-codelyzer] Codelyzer (règles TSLint) est abandonné,"codelyzer 6.0.2 (développement)
+Action : Supprimer avec TSLint, règles équivalentes dans angular-eslint.",Medium,audit-angular qualite,,
+[MIG-002] 47 directive(s) structurelle(s) *ngIf / *ngFor / ngSwitch,"0 % du contrôle de flux utilise la syntaxe @if / @for / @switch.
+Action : Migration officielle : `ng generate @angular/core:control-flow`. Les *ngFor deviennent @for avec `track` obligatoire.
+Emplacements : src/app/pages/dashboard/traffic/traffic.component.ts, src/app/pages/e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component.ts, src/app/pages/tables/tree-grid/tree-grid.component.ts, src/app/@theme/components/header/header.component.html, src/app/pages/dashboard/contacts/contacts.component.html, src/app/pages/dashboard/dashboard.component.html, src/app/pages/dashboard/electricity/electricity.component.html, src/app/pages/dashboard/rooms/room-selector/room-selector.component.html, src/app/pages/dashboard/security-cameras/security-cameras.component.html, src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.html",Medium,audit-angular migration,,
+[MIG-003] 62 @Input / @Output à décorateur,"0 % des entrées / sorties utilisent input() / output() / model().
+Action : Migrations officielles : `ng generate @angular/core:signal-input-migration` et `output-migration`. Revoir à la main les entrées modifiées dans le composant.
+Emplacements : src/app/@theme/components/search-input/search-input.component.ts, src/app/@theme/components/tiny-mce/tiny-mce.component.ts, src/app/pages/dashboard/electricity/electricity-chart/electricity-chart.component.ts, src/app/pages/dashboard/rooms/player/player.component.ts, src/app/pages/dashboard/rooms/room-selector/room-selector.component.ts, src/app/pages/dashboard/solar/solar.component.ts, src/app/pages/dashboard/status-card/status-card.component.ts, src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.ts, src/app/pages/dashboard/traffic/traffic-chart.component.ts, src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.ts",Medium,audit-angular migration,,
+[MIG-006] Application dépendante de zone.js,"143 composant(s) sur 144 sans ChangeDetectionStrategy.OnPush ; 1 fichier(s) importent NgZone. Depuis Angular 21, les nouvelles applications sont sans zone.js par défaut.
+Action : Passer les composants en OnPush, remplacer les mutations par des signals, retirer NgZone, puis `provideZonelessChangeDetection()`. Outil MCP officiel : `onpush_zoneless_migration`.
+Emplacements : src/app/pages/maps/search-map/search/search.component.ts:1",Medium,audit-angular migration,,
+[PER-002] Pas de budget sur le bundle initial,"Budgets configurés : anyComponentStyle.
+Action : Ajouter un budget « initial » (avertissement / erreur) dans la configuration de production.",Medium,audit-angular performance,,
+[PER-004] 15 % des routes chargées à la demande,"11 route(s) différée(s), 60 chargée(s) d'emblée.
+Action : Charger les fonctionnalités avec loadComponent / loadChildren, et @defer pour les blocs lourds.",Medium,audit-angular performance,,
+[PER-007] 2 fichier(s) statique(s) de plus de 500 Ko,"src/assets/images/team.png (610 Ko), src/assets/map/world.json (987 Ko)
+Action : Compresser (WebP / AVIF), redimensionner, NgOptimizedImage.
+Emplacements : src/assets/images/team.png, src/assets/map/world.json",Medium,audit-angular performance,,
+[QUA-007] 1 composant(s) de plus de 400 lignes,"Composants difficiles à tester et à faire évoluer.
+Action : Extraire la logique dans des services ou des composants enfants.
+Emplacements : src/app/pages/maps/bubble/bubble-map.component.ts:8",Medium,audit-angular qualite,,
+[QUA-009] Tests unitaires sous Karma,"Karma est déprécié par son équipe ; Vitest est le lanceur par défaut des nouveaux projets Angular depuis la v21.
+Action : Migrer vers Vitest (schematic expérimental `@schematics/angular:refactor-jasmine-vitest`) ou Jest.",Medium,audit-angular qualite,,
+[SEC-007] 2 URL(s) en http:// non chiffré,"Contenu mixte bloqué par les navigateurs en HTTPS, ou trafic en clair.
+Action : Passer en https:// ou en chemins relatifs configurés par environnement.
+Emplacements : src/app/pages/extra-components/chat/bot-replies.ts:7, src/app/pages/extra-components/chat/bot-replies.ts:17",Medium,audit-angular securite,,
+[VER-011] TypeScript 4.9.5,"Angular 17+ demande TypeScript 5.2 ou plus.
+Action : Monter TypeScript avec Angular (géré par `ng update`).",Medium,audit-angular versions,,
+[DEP-ngx-echarts] Bibliothèque de graphiques liée aux versions d'Angular,"ngx-echarts 4.2.2
+Action : Vérifier la version compatible avant la montée.",Low,audit-angular versions,,
+[MIG-004] 8 requête(s) @ViewChild / @ContentChild à décorateur,"Les requêtes signals (viewChild(), contentChild()) suppriment les problèmes de cycle de vie (ngAfterViewInit).
+Action : Migration officielle : `ng generate @angular/core:signal-queries-migration`.",Low,audit-angular migration,,
+[MIG-005] 136 injection(s) par constructeur,"0 % des injections utilisent inject().
+Action : Migration officielle : `ng generate @angular/core:inject`.",Low,audit-angular migration,,
+[MIG-007] Aucun état en signals,"93 appel(s) à subscribe(), 0 signal() / computed().
+Action : Commencer par les états locaux des composants (signal, computed) et toSignal() pour les flux HTTP.",Low,audit-angular migration,,
+[PER-005] 43 *ngFor sans trackBy,"Toute la liste est recréée dans le DOM à chaque changement de référence.
+Action : La migration vers @for impose `track` et règle le point.
+Emplacements : src/app/pages/dashboard/traffic/traffic.component.ts:16, src/app/pages/e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component.ts:8, src/app/@theme/components/header/header.component.html:9, src/app/pages/dashboard/contacts/contacts.component.html:6, src/app/pages/dashboard/contacts/contacts.component.html:15, src/app/pages/dashboard/dashboard.component.html:2, src/app/pages/dashboard/electricity/electricity.component.html:8, src/app/pages/dashboard/electricity/electricity.component.html:10, src/app/pages/dashboard/electricity/electricity.component.html:41, src/app/pages/dashboard/rooms/room-selector/room-selector.component.html:72",Low,audit-angular performance,,
+[QUA-005] 1 appel(s) console.*,"Traces qui partent en production.
+Action : Passer par un service de journalisation ; règle ESLint no-console.
+Emplacements : src/main.ts:17",Low,audit-angular qualite,,

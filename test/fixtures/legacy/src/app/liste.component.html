@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let i of items">{{ i.nom }} {{ format(i, 2) }}</li>
+  <li *ngFor="let i of items; trackBy: suivi">{{ i }}</li>
+</ul>
+<div *ngIf="html" [innerHTML]="html"></div>

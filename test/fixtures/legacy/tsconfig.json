@@ -1,0 +1,5 @@
+{
+  // commentaire autorisé
+  "compilerOptions": { "strict": false, },
+  "angularCompilerOptions": { "strictTemplates": false }
+}

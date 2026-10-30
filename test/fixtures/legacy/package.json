@@ -1,0 +1,2 @@
+{ "name": "legacy-demo", "dependencies": { "@angular/core": "^15.2.0", "@angular/common": "^15.2.0", "@angular/material": "^14.2.0", "rxjs": "~6.6.0", "zone.js": "~0.11.4", "moment": "^2.29.0", "lodash": "^4.17.21" },
+  "devDependencies": { "typescript": "~4.8.4", "tslint": "~6.1.0", "protractor": "~7.0.0", "karma": "~6.4.0" } }

@@ -1,0 +1,469 @@
+<title>Audit Angular à prix fixe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Audit de votre application Angular : versions, préparation aux signals et à Angular 22, qualité, sécurité, performance, migration chiffrée en jours. Prix fixe, 100 % à distance, votre code reste chez vous.">
+<style>
+/* Mise en page : une planche d'ingénieur. Bandeaux pleine largeur, contenu sur une grille de 16 px,
+   cartouche et cotes comme vocabulaire ; une seule couleur de signal (vert marche) : la bulle DEV-602. */
+@font-face{font-family:Archivo;src:url(__ARCHIVO__) format('woff2');font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:'Martian Mono';src:url(__MARTIAN__) format('woff2');font-weight:100 800;font-stretch:75% 112.5%;font-display:swap}
+@font-face{font-family:Atkinson;src:url(__ATKINSON__) format('woff2');font-weight:200 800;font-display:swap}
+:root{
+  --fond:#D4D7DA; --papier:#F3F4F5; --encre:#1B1E21; --secondaire:#5C636A; --filet:#1B1E21; --carter:#9AA0A6;
+  --trame:rgba(27,30,33,.075); --signal:#2BB673; --sur-signal:#1B1E21; --inverse-fond:#1B1E21; --inverse-encre:#F3F4F5;
+  --f-titre:Archivo,'Arial Narrow',sans-serif; --f-data:'Martian Mono',ui-monospace,Menlo,monospace; --f-texte:Atkinson,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fond:#1B1E21; --papier:#2A2F34; --encre:#F3F4F5; --secondaire:#AEB4BA; --filet:#C9CED3; --carter:#4A5158;
+  --trame:rgba(255,255,255,.045); --inverse-fond:#F3F4F5; --inverse-encre:#1B1E21; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --fond:#1B1E21; --papier:#2A2F34; --encre:#F3F4F5; --secondaire:#AEB4BA; --filet:#C9CED3; --carter:#4A5158;
+  --trame:rgba(255,255,255,.045); --inverse-fond:#F3F4F5; --inverse-encre:#1B1E21; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--encre);font:17px/1.55 var(--f-texte);-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--trame) 1px,transparent 1px),linear-gradient(90deg,var(--trame) 1px,transparent 1px);background-size:16px 16px}
+.bande{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.int{max-width:1120px;margin:0 auto}
+.titre{font-family:var(--f-titre);font-weight:800;font-stretch:62%;text-transform:uppercase;line-height:.94;letter-spacing:-.005em;text-wrap:balance;margin:0}
+.data{font-family:var(--f-data);font-stretch:87.5%;font-weight:500;text-transform:uppercase;letter-spacing:.07em;font-variant-numeric:tabular-nums}
+p{margin:0;max-width:62ch}
+a{color:inherit}
+code{font-family:var(--f-data);font-stretch:87.5%;font-size:.86em}
+:focus-visible{outline:2px solid var(--encre);outline-offset:3px}
+
+/* En-tête */
+.entete{padding-block:20px;border-bottom:1.5px solid var(--filet)}
+.entete .int{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.marque{display:flex;align-items:flex-end;gap:10px;text-decoration:none}
+.marque .titre{font-size:30px;line-height:.78}
+.entete nav{display:flex;gap:20px;flex-wrap:wrap;font-size:11px}
+.entete nav a{text-decoration:none}
+.entete nav a:hover{text-decoration:underline}
+
+/* Ouverture */
+.ouverture{padding-block:56px 64px}
+.ouverture .int{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;align-items:start}
+.reperes{display:flex;gap:16px;align-items:center;margin-bottom:28px}
+.reperes .data{font-size:11px;line-height:1.7;color:var(--secondaire)}
+.ouverture h1{font-size:clamp(64px,10vw,124px)}
+.ouverture .acc{font-size:clamp(19px,2.1vw,23px);line-height:1.4;margin:28px 0 32px;font-weight:500}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border:1.5px solid var(--filet);text-decoration:none;font:600 15px var(--f-texte);cursor:pointer;background:none;color:inherit}
+.btn.plein{background:var(--inverse-fond);color:var(--inverse-encre);border-color:var(--inverse-fond)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:2px 2px 0 var(--filet)}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--filet);border-bottom:1.5px solid var(--filet);margin-top:40px}
+.specs>div{padding:12px 0 12px 12px;min-width:0}
+.specs>div:first-child{padding-left:0}
+.specs>div+div{border-left:1px solid var(--filet)}
+.specs .titre{font-size:40px}
+.specs .data{font-size:9.5px;margin-top:6px;color:var(--secondaire)}
+.planche-doc{position:relative;padding:0 0 36px 30px}
+.planche-doc img{display:block;width:100%;height:auto;border:1.5px solid var(--filet)}
+.cote{position:absolute;font-size:10px}
+.cote.h{left:30px;right:0;bottom:6px;height:16px;border-left:1px solid var(--filet);border-right:1px solid var(--filet)}
+.cote.h::before{content:"";position:absolute;left:0;right:0;top:8px;border-top:1px solid var(--filet)}
+.cote.v{left:4px;top:0;bottom:36px;width:16px;border-top:1px solid var(--filet);border-bottom:1px solid var(--filet)}
+.cote.v::before{content:"";position:absolute;top:0;bottom:0;left:8px;border-left:1px solid var(--filet)}
+.cote span{position:absolute;background:var(--fond);padding:0 6px;white-space:nowrap}
+.cote.h span{left:50%;top:1px;transform:translateX(-50%)}
+.cote.v span{top:50%;left:8px;transform:translate(-50%,-50%) rotate(-90deg)}
+.legende-doc{font-size:10px;color:var(--secondaire);margin-top:10px}
+
+/* Sections */
+section.bloc{padding-block:64px;border-top:1.5px solid var(--filet)}
+.tete-bloc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:32px;align-items:end;margin-bottom:40px}
+.tete-bloc h2{font-size:clamp(40px,5.4vw,64px)}
+.tete-bloc p{color:var(--secondaire)}
+.folio{display:inline-block;font-size:10px;border:1.5px solid var(--filet);padding:3px 7px;margin-bottom:14px}
+
+/* Échéancier de support */
+.echeancier{background:var(--papier);border:1.5px solid var(--filet);overflow-x:auto}
+.echeancier table{width:100%;border-collapse:collapse;min-width:620px}
+.echeancier th,.echeancier td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--carter);vertical-align:top}
+.echeancier th{font:500 10px var(--f-data);font-stretch:87.5%;letter-spacing:.07em;text-transform:uppercase;color:var(--secondaire);border-bottom:1.5px solid var(--filet)}
+.echeancier tr:last-child td{border-bottom:0}
+.echeancier .v{font-family:var(--f-titre);font-weight:800;font-stretch:62%;font-size:30px;line-height:1}
+.etat{display:inline-block;font:600 10px var(--f-data);font-stretch:87.5%;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border:1px solid var(--filet)}
+.etat.hors{background:var(--inverse-fond);color:var(--inverse-encre);border-color:var(--inverse-fond)}
+.etat.fin{border-width:2.5px}
+.etat.lts{border-style:solid}
+.etat.actif{border-style:dashed}
+.note{font-size:13px;color:var(--secondaire);margin-top:14px}
+
+/* Déroulé */
+.etapes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--filet)}
+.etape{padding:20px 20px 24px 0;min-width:0}
+.etape+.etape{border-left:1px solid var(--filet);padding-left:20px}
+.etape .n{font-family:var(--f-titre);font-weight:800;font-stretch:62%;font-size:56px;line-height:1}
+.etape h3{font:700 18px/1.3 var(--f-texte);margin:12px 0 8px}
+.etape p{font-size:15px;color:var(--secondaire)}
+.cmd{display:flex;margin-top:28px;border:1.5px solid var(--filet);background:var(--inverse-fond);color:var(--inverse-encre);max-width:100%}
+.cmd code{flex:1;min-width:0;padding:16px 18px;font-size:15px;overflow-x:auto;white-space:nowrap}
+.cmd button{border:0;border-left:1.5px solid var(--inverse-encre);background:none;color:inherit;padding:0 18px;font:600 11px var(--f-data);font-stretch:87.5%;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}
+
+/* Axes */
+.axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:0;border-top:1.5px solid var(--filet);border-left:1.5px solid var(--filet)}
+.axe{padding:22px 22px 26px;border-right:1.5px solid var(--filet);border-bottom:1.5px solid var(--filet);background:var(--papier);min-width:0}
+.axe .data{font-size:10px;color:var(--secondaire)}
+.axe h3{font:800 26px/1 var(--f-titre);font-stretch:62%;text-transform:uppercase;margin:10px 0 12px}
+.axe ul{margin:0;padding:0;list-style:none;font-size:14.5px;display:grid;gap:6px}
+.axe li{padding-left:16px;position:relative}
+.axe li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1.5px;background:var(--encre)}
+
+/* Exemple */
+.pages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.pages figure{margin:0;min-width:0}
+.pages img{display:block;width:100%;height:auto;border:1.5px solid var(--filet)}
+.pages figcaption{font-size:10px;margin-top:8px;color:var(--secondaire)}
+.chiffres-ex{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;align-items:center}
+
+/* Tarifs */
+.tarifs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1.5px solid var(--filet);background:var(--papier)}
+.formule{padding:26px 24px 28px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.formule+.formule{border-left:1.5px solid var(--filet)}
+.formule .nom{font-size:11px}
+.formule .prix{font-family:var(--f-titre);font-weight:800;font-stretch:62%;font-size:64px;line-height:.9}
+.formule .prix small{font:500 12px var(--f-data);font-stretch:87.5%;letter-spacing:.05em;margin-left:4px}
+.formule .pour{font-size:15px;color:var(--secondaire);min-height:3.1em}
+.formule dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:13px;border-top:1px solid var(--carter);border-bottom:1px solid var(--carter);padding:10px 0}
+.formule dt{font:500 10px/1.9 var(--f-data);font-stretch:87.5%;letter-spacing:.06em;text-transform:uppercase;color:var(--secondaire)}
+.formule dd{margin:0;text-align:right;font-weight:600}
+.formule ul{margin:0;padding:0;list-style:none;font-size:14.5px;display:grid;gap:7px;flex:1}
+.formule li{padding-left:20px;position:relative}
+.formule li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:5px;border-left:1.5px solid var(--encre);border-bottom:1.5px solid var(--encre);transform:rotate(-45deg)}
+.formule li.plus{font-weight:600}
+.formule li.plus::before{display:none}
+.formule .btn{justify-content:center}
+.conditions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;font-size:14px}
+.conditions>div{min-width:0}
+.conditions h3{font:500 10px var(--f-data);font-stretch:87.5%;letter-spacing:.07em;text-transform:uppercase;margin:0 0 6px}
+
+/* Confidentialité */
+.secret{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.flux{background:var(--papier);border:1.5px solid var(--filet);padding:22px;font-size:14px;align-self:start}
+.flux svg{display:block;width:100%;height:auto}
+.liste-garanties{display:grid;gap:16px;margin:0;padding:0;list-style:none}
+.liste-garanties li{border-top:1px solid var(--filet);padding-top:12px}
+.liste-garanties b{display:block;font-size:17px;margin-bottom:2px}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.faq details{border-top:1px solid var(--filet);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";font:500 18px var(--f-data)}
+.faq details[open] summary::after{content:"−"}
+.faq summary::-webkit-details-marker{display:none}
+.faq details p{margin-top:10px;font-size:15px;color:var(--secondaire)}
+
+/* Pied */
+.pied{padding-block:40px 56px;border-top:1.5px solid var(--filet)}
+.pied .int{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-end}
+.cartouche{border:1.5px solid var(--filet);background:var(--papier);display:grid;grid-template-columns:2fr 1fr 1fr;min-width:0;max-width:100%}
+.cartouche>div{padding:6px 10px 8px;min-width:0}
+.cartouche>div+div{border-left:1px solid var(--filet)}
+.cartouche .k{font-size:8.5px;color:var(--secondaire)}
+.cartouche .v{font-size:12px;margin-top:3px;white-space:nowrap}
+.mentions{font-size:12.5px;color:var(--secondaire);max-width:60ch;display:grid;gap:6px}
+.mentions a,.cgv-lien a{color:inherit;text-underline-offset:3px}
+.cgv-lien{margin:24px 0 0;font-size:14px;max-width:70ch}
+
+@media (max-width:900px){
+  .ouverture .int,.tete-bloc,.secret{grid-template-columns:1fr}
+  .planche-doc{max-width:460px}
+  .etapes{grid-template-columns:1fr 1fr}
+  .etape:nth-child(3){border-left:0;padding-left:0}
+  .etape:nth-child(n+3){border-top:1px solid var(--filet)}
+  .tarifs{grid-template-columns:1fr}
+  .formule+.formule{border-left:0;border-top:1.5px solid var(--filet)}
+  .formule .pour{min-height:0}
+  .pages{grid-template-columns:1fr 1fr}
+  .conditions,.faq{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .specs{grid-template-columns:1fr 1fr}
+  .specs>div:nth-child(3){border-left:0;padding-left:0}
+  .specs>div:nth-child(n+3){border-top:1px solid var(--filet)}
+  .etapes{grid-template-columns:1fr}
+  .etape+.etape{border-left:0;padding-left:0;border-top:1px solid var(--filet)}
+  .entete nav{display:none}
+  .cartouche{grid-template-columns:1fr 1fr}
+  .cartouche>div:first-child{grid-column:1/-1}
+  .cartouche>div:nth-child(2){border-left:0;border-top:1px solid var(--filet)}
+  .cartouche>div:nth-child(3){border-top:1px solid var(--filet)}
+}
+</style>
+
+<header class="bande entete">
+  <div class="int">
+    <a class="marque" href="#haut" aria-label="Consigne">
+      <svg width="48" height="27" viewBox="0 0 48 27" aria-hidden="true"><rect x="0" y="19" width="48" height="8" fill="var(--carter)"/><rect x="11.5" y="19" width="22" height="8" fill="var(--encre)"/><path d="M33 0h14l-7 17z" fill="var(--encre)"/><rect x="39.2" y="17" width="1.6" height="10" fill="var(--encre)"/></svg>
+      <span class="titre">Consigne</span>
+    </a>
+    <nav class="data" aria-label="Sections">
+      <a href="#deroule">Déroulé</a><a href="#exemple">Rapport d'exemple</a><a href="#tarifs">Tarifs</a><a href="#faq">Questions</a>
+    </nav>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="bande ouverture">
+    <div class="int">
+      <div>
+        <div class="reperes">
+          <svg width="88" height="88" viewBox="0 0 88 88" role="img" aria-label="Repère DEV-602"><circle cx="44" cy="44" r="42.8" fill="var(--signal)" stroke="var(--sur-signal)" stroke-width="2.4"/><line x1="1.2" y1="44" x2="86.8" y2="44" stroke="var(--sur-signal)" stroke-width="2.4"/><text x="44" y="36" text-anchor="middle" font-family="Archivo" font-stretch="62%" font-weight="800" font-size="26" fill="var(--sur-signal)">DEV</text><text x="44" y="67" text-anchor="middle" font-family="Martian Mono" font-stretch="87.5%" font-weight="500" font-size="17" fill="var(--sur-signal)">602</text></svg>
+          <div class="data">Audit d'application<br>Angular 2 à 22</div>
+        </div>
+        <h1 class="titre">Audit Angular à&nbsp;prix fixe</h1>
+        <p class="acc">Versions, préparation aux signals et à Angular 22, qualité, sécurité, performance&nbsp;: votre application mesurée, relue par un développeur senior et chiffrée en jours. Tout se fait à distance, et votre code ne quitte pas vos machines.</p>
+        <div class="actions">
+          <a class="btn plein" href="#tarifs">Voir les formules</a>
+          <a class="btn" href="#exemple">Lire un rapport d'exemple</a>
+        </div>
+        <div class="specs">
+          <div><div class="titre">790&nbsp;€</div><div class="data">HT, formule Flash</div></div>
+          <div><div class="titre">5&nbsp;j</div><div class="data">ouvrés, délai Flash</div></div>
+          <div><div class="titre">56</div><div class="data">vérifications</div></div>
+          <div><div class="titre">0</div><div class="data">ligne de code envoyée</div></div>
+        </div>
+      </div>
+      <figure class="planche-doc" style="margin:0">
+        <img src="__IMG_P1__" width="909" height="1287" alt="Couverture du rapport d'exemple : audit de ngx-admin, indice global 40 sur 100, Angular 15.2.10, migration estimée entre 23 et 62 jours.">
+        <div class="cote h data" aria-hidden="true"><span>A4 · 210 mm</span></div>
+        <div class="cote v data" aria-hidden="true"><span>15 folios</span></div>
+        <figcaption class="legende-doc data">Rapport réel, projet open source ngx-admin</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="bande bloc" id="support" aria-labelledby="t-support">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Échéancier</span><h2 class="titre" id="t-support">Votre version est-elle encore corrigée&nbsp;?</h2></div>
+        <p>Une version majeure d'Angular reçoit des correctifs pendant 18 mois jusqu'à Angular 21, et 24 mois à partir d'Angular 22. Ensuite, plus rien. Le calendrier officiel publié par l'équipe Angular, au 23 octobre 2026&nbsp;:</p>
+      </div>
+      <div class="echeancier">
+        <table>
+          <thead><tr><th>Version</th><th>Sortie</th><th>Fin des correctifs</th><th>État</th></tr></thead>
+          <tbody>
+            <tr><td class="v">22</td><td>3 juin 2026</td><td>juin 2028</td><td><span class="etat actif">Active</span></td></tr>
+            <tr><td class="v">21</td><td>19 novembre 2025</td><td>juin 2027</td><td><span class="etat lts">Support long terme</span></td></tr>
+            <tr><td class="v">20</td><td>28 mai 2025</td><td><strong>28 novembre 2026</strong></td><td><span class="etat fin" id="etat-v20" data-fin="2026-11-28">Fin le 28/11/2026</span></td></tr>
+            <tr><td class="v">2–19</td><td>2016 à 2024</td><td>terminé</td><td><span class="etat hors">Hors support</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Source&nbsp;: angular.dev/reference/releases. L'outil d'audit lit votre version exacte dans le fichier de verrouillage et applique ce calendrier.</p>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="deroule" aria-labelledby="t-deroule">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Déroulé</span><h2 class="titre" id="t-deroule">Quatre étapes, aucune réunion de lancement</h2></div>
+        <p>Vous lancez une commande en lecture seule sur votre dépôt et vous envoyez le fichier de mesures qu'elle produit. Nous relisons, comparons, chiffrons et rédigeons.</p>
+      </div>
+      <ol class="etapes" style="list-style:none;margin:0;padding:0">
+        <li class="etape"><div class="n">1</div><h3>Commander</h3><p>Paiement en ligne, facture à votre raison sociale. Les instructions arrivent avec le reçu.</p></li>
+        <li class="etape"><div class="n">2</div><h3>Lancer l'outil</h3><p>Une commande à la racine du dépôt, moins d'une minute. Rien n'est installé dans votre projet, rien n'est envoyé sur le réseau.</p></li>
+        <li class="etape"><div class="n">3</div><h3>Envoyer audit.json</h3><p>Un fichier de mesures, sans code source. Avec <code>--sans-chemins</code>, sans aucun nom de fichier.</p></li>
+        <li class="etape"><div class="n">4</div><h3>Recevoir le rapport</h3><p>PDF relu et commenté, plan d'action, estimation par lot et tickets prêts à importer.</p></li>
+      </ol>
+      <div class="cmd">
+        <code id="commande">npx --yes github:consigne/audit-angular --sans-chemins</code>
+        <button type="button" id="copier" aria-describedby="commande">Copier</button>
+      </div>
+      <p class="note">L'outil est libre (licence MIT) : vous pouvez lire son code avant de le lancer, ou l'utiliser seul, gratuitement.</p>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="axes" aria-labelledby="t-axes">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Contenu</span><h2 class="titre" id="t-axes">Cinq axes, un indice chacun</h2></div>
+        <p>Chaque constat est classé de P1 (bloque ou expose) à P4 (information), avec l'action à mener et les emplacements dans le code. Les identifiants sont stables d'un audit à l'autre&nbsp;: vous mesurez vos progrès.</p>
+      </div>
+      <div class="axes">
+        <div class="axe"><span class="data">Axe 1</span><h3>Versions et dépendances</h3><ul><li>Support de votre version, date de fin</li><li>Paquets Angular, Material, NgRx, PrimeNG désalignés</li><li>Dépendances abandonnées&nbsp;: TSLint, Protractor, flex-layout, rxjs-compat</li><li>RxJS 6, TypeScript 4, fichier de verrouillage</li></ul></div>
+        <div class="axe"><span class="data">Axe 2</span><h3>Préparation signals et v22</h3><ul><li>Part de composants standalone et OnPush</li><li><code>*ngIf</code> / <code>*ngFor</code> à migrer vers <code>@if</code> / <code>@for</code></li><li><code>@Input</code>, <code>@Output</code>, <code>@ViewChild</code> à décorateurs</li><li>Dépendance à zone.js et à NgZone</li></ul></div>
+        <div class="axe"><span class="data">Axe 3</span><h3>Qualité et tests</h3><ul><li>Mode strict, <code>strictTemplates</code>, types <code>any</code></li><li>Lint, intégration continue, tests de bout en bout</li><li>Composants sans test, Karma à remplacer</li><li>Composants de plus de 400 lignes</li></ul></div>
+        <div class="axe"><span class="data">Axe 4</span><h3>Sécurité</h3><ul><li>Contournements du nettoyage XSS (<code>bypassSecurityTrust*</code>)</li><li><code>innerHTML</code>, <code>document.write</code>, <code>eval</code></li><li>Jetons d'authentification en <code>localStorage</code></li><li>Clés et secrets dans le bundle (jamais recopiés)</li></ul></div>
+        <div class="axe"><span class="data">Axe 5</span><h3>Performance</h3><ul><li>Constructeur webpack historique ou esbuild</li><li>Routes chargées à la demande, budgets</li><li>Listes sans <code>trackBy</code>, appels dans les gabarits</li><li>Fichiers statiques lourds, lodash complet, moment.js</li></ul></div>
+        <div class="axe"><span class="data">Synthèse</span><h3>Migration chiffrée</h3><ul><li>Lots de travail jusqu'à Angular 22 sans zone.js</li><li>Fourchette basse et haute en jours, base de calcul visible</li><li>Ordre recommandé, ce qui peut attendre</li><li>Export CSV pour Jira, GitLab, Azure DevOps</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="exemple" aria-labelledby="t-exemple">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Exemple</span><h2 class="titre" id="t-exemple">Le rapport, sur un vrai projet</h2></div>
+        <p>ngx-admin, modèle de tableau de bord open source très diffusé (licence MIT), resté en Angular 15. Rapport complet, revue de l'auditeur et vulnérabilités npm audit comprises. Le PDF, le Markdown, les tickets et le fichier audit.json sont publiés avec l'outil.</p>
+      </div>
+      <div class="pages">
+        <figure><img src="__IMG_P2__" width="909" height="1287" alt="Page de synthèse : avis de l'auditeur et indices par axe, versions 8, préparation 67, qualité 11, sécurité 58, performance 71."><figcaption class="data">Folio 2 · Synthèse et indices</figcaption></figure>
+        <figure><img src="__IMG_P5__" width="909" height="1287" alt="Page des mesures : 10 vulnérabilités critiques, 90 hautes, 42 modérées, 12 faibles, avec le correctif de chaque paquet."><figcaption class="data">Folio 5 · Vulnérabilités (npm audit)</figcaption></figure>
+        <figure><img src="__IMG_P6__" width="909" height="1287" alt="Page des constats : Angular 15 hors support (P1), dépendances abandonnées (P2), avec avis de l'auditeur."><figcaption class="data">Folio 6 · Constats et avis</figcaption></figure>
+        <figure><img src="__IMG_P12__" width="909" height="1287" alt="Page d'estimation : 14 lots, total entre 23 et 62 jours, ajustement de l'auditeur."><figcaption class="data">Folio 12 · Estimation par lot</figcaption></figure>
+      </div>
+      <div class="chiffres-ex">
+        <a class="btn" href="https://github.com/Consigne-Studio/audit-angular/blob/main/exemples/ngx-admin/rapport.pdf">Ouvrir le PDF complet (15 folios)</a>
+        <span class="data" style="font-size:11px;color:var(--secondaire)">33 constats · 2 P1 · 14 P2 · 23 à 62 jours estimés</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="tarifs" aria-labelledby="t-tarifs">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Tarifs</span><h2 class="titre" id="t-tarifs">Trois formules, prix et délais fixes</h2></div>
+        <p>Prix hors taxes, payés à la commande. Délais en jours ouvrés à compter de la réception de vos fichiers. Si nous dépassons le délai, la formule est remboursée en entier.</p>
+      </div>
+      <div class="tarifs">
+        <div class="formule">
+          <span class="nom data">Flash</span>
+          <div class="prix">790&nbsp;€<small>HT</small></div>
+          <p class="pour">Savoir où vous en êtes et ce que coûte la mise à jour, avant de budgéter.</p>
+          <dl><dt>Délai</dt><dd>5 jours ouvrés</dd><dt>Taille</dt><dd>jusqu'à 150 000 lignes</dd><dt>Échanges</dt><dd>par écrit</dd></dl>
+          <ul>
+            <li>Analyse des 5 axes et indices</li>
+            <li>Relecture de chaque constat, faux positifs retirés</li>
+            <li>Synthèse rédigée pour un décideur</li>
+            <li>Estimation de migration ajustée</li>
+            <li>Rapport PDF, Markdown et tickets CSV</li>
+            <li>Réponses écrites pendant 30 jours</li>
+          </ul>
+          <a class="btn" href="https://consignestudio.gumroad.com/l/audit-angular">Commander Flash</a>
+        </div>
+        <div class="formule">
+          <span class="nom data">Standard</span>
+          <div class="prix">2&nbsp;490&nbsp;€<small>HT</small></div>
+          <p class="pour">Décider des priorités de l'année avec des mesures faites sur l'application qui tourne.</p>
+          <dl><dt>Délai</dt><dd>10 jours ouvrés</dd><dt>Taille</dt><dd>jusqu'à 300 000 lignes</dd><dt>Échanges</dt><dd>écrit + 1 visio</dd></dl>
+          <ul>
+            <li class="plus">Tout Flash, plus&nbsp;:</li>
+            <li>Vulnérabilités connues des dépendances (npm audit)</li>
+            <li>Poids des bundles, page par page (stats du build)</li>
+            <li>Core Web Vitals sur 3 écrans que vous choisissez</li>
+            <li>Revue manuelle de 10 fichiers clés, envoyés en extraits</li>
+            <li>Restitution de 45 minutes en visio</li>
+          </ul>
+          <a class="btn plein" href="https://consignestudio.gumroad.com/l/audit-angular">Commander Standard</a>
+        </div>
+        <div class="formule">
+          <span class="nom data">Migration</span>
+          <div class="prix">3&nbsp;990&nbsp;€<small>HT</small></div>
+          <p class="pour">Lancer la montée vers Angular 22 avec un plan que votre équipe peut suivre seule.</p>
+          <dl><dt>Délai</dt><dd>15 jours ouvrés</dd><dt>Taille</dt><dd>jusqu'à 300 000 lignes</dd><dt>Échanges</dt><dd>écrit + 2 visios</dd></dl>
+          <ul>
+            <li class="plus">Tout Standard, plus&nbsp;:</li>
+            <li>Plan de migration par étape de version et par sprint</li>
+            <li>Compatibilité vérifiée de chaque bibliothèque tierce</li>
+            <li>Estimation resserrée à ±20&nbsp;%</li>
+            <li>Tickets détaillés avec critères de recette</li>
+            <li>Point d'étape en visio à mi-parcours de votre migration</li>
+          </ul>
+          <a class="btn" href="https://consignestudio.gumroad.com/l/audit-angular">Commander Migration</a>
+        </div>
+      </div>
+      <div class="conditions">
+        <div><h3 class="data">Au-delà de 300 000 lignes</h3><p>Monodépôt ou plusieurs applications&nbsp;: une formule par application, ou un devis par écrit.</p></div>
+        <div><h3 class="data">Ensuite</h3><p>Le prix de l'audit est déduit du premier trimestre de l'abonnement de maintenance Angular si vous y souscrivez dans les 30 jours.</p></div>
+        <div><h3 class="data">Ce qui n'est pas inclus</h3><p>La réalisation de la migration, les tests d'intrusion et l'accès à vos serveurs. L'audit ne modifie jamais votre code.</p></div>
+      </div>
+      <p class="cgv-lien">Offre réservée aux professionnels&nbsp;: raison sociale et SIREN sont demandés au paiement. <a href="__BASE__cgv.html">Conditions générales de vente</a> (<a href="__BASE__cgv.pdf">PDF</a>), à lire avant de commander.</p>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="confidentialite" aria-labelledby="t-secret">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Confidentialité</span><h2 class="titre" id="t-secret">Votre code reste chez vous</h2></div>
+        <p>Pensé pour les équipes qui ne peuvent pas ouvrir leur dépôt à un prestataire&nbsp;: défense, énergie, industrie, santé, finance.</p>
+      </div>
+      <div class="secret">
+        <div class="flux" role="img" aria-label="Schéma : le dépôt et l'outil restent sur votre poste ; seul audit.json, sans code source, est envoyé à l'auditeur, qui renvoie le rapport.">
+          <svg viewBox="0 0 520 230" aria-hidden="true">
+            <rect x="1" y="1" width="250" height="228" fill="none" stroke="var(--encre)" stroke-width="1.5" stroke-dasharray="6 4"/>
+            <text x="14" y="22" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--secondaire)" letter-spacing=".7">VOTRE POSTE</text>
+            <rect x="24" y="44" width="200" height="54" fill="var(--fond)" stroke="var(--encre)" stroke-width="1.5"/>
+            <text x="38" y="68" font-family="Atkinson" font-size="15" font-weight="700" fill="var(--encre)">Dépôt Angular</text>
+            <text x="38" y="86" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--secondaire)">LECTURE SEULE</text>
+            <line x1="124" y1="98" x2="124" y2="130" stroke="var(--encre)" stroke-width="1.5"/><path d="M118 124 L124 134 L130 124 Z" fill="var(--encre)"/>
+            <rect x="24" y="136" width="200" height="54" fill="var(--fond)" stroke="var(--encre)" stroke-width="1.5"/>
+            <text x="38" y="160" font-family="Atkinson" font-size="15" font-weight="700" fill="var(--encre)">audit-angular</text>
+            <text x="38" y="178" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--secondaire)">SANS RÉSEAU</text>
+            <line x1="224" y1="163" x2="372" y2="163" stroke="var(--encre)" stroke-width="1.5"/><path d="M366 157 L376 163 L366 169 Z" fill="var(--encre)"/>
+            <rect x="262" y="146" width="96" height="22" fill="var(--papier)"/>
+            <text x="310" y="161" text-anchor="middle" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--encre)">AUDIT.JSON</text>
+            <rect x="378" y="136" width="130" height="54" fill="var(--inverse-fond)"/>
+            <text x="392" y="160" font-family="Atkinson" font-size="15" font-weight="700" fill="var(--inverse-encre)">Auditeur</text>
+            <text x="392" y="178" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--inverse-encre)">RELECTURE</text>
+            <path d="M443 136 V71 H232" fill="none" stroke="var(--encre)" stroke-width="1.5"/><path d="M238 65 L228 71 L238 77 Z" fill="var(--encre)"/>
+            <rect x="290" y="60" width="96" height="22" fill="var(--papier)"/>
+            <text x="338" y="75" text-anchor="middle" font-family="Martian Mono" font-stretch="87.5%" font-size="10" fill="var(--encre)">RAPPORT.PDF</text>
+          </svg>
+        </div>
+        <ul class="liste-garanties">
+          <li><b>Aucune exécution</b>L'outil lit des fichiers. Il ne lance ni installation, ni build, ni script de votre projet, et n'ouvre aucune connexion réseau.</li>
+          <li><b>Aucun code transmis</b><code>audit.json</code> contient des compteurs et des positions. Les secrets détectés ne sont jamais recopiés. Ouvrez-le avant de l'envoyer.</li>
+          <li><b>Engagement écrit</b>Clause de confidentialité dans les conditions de vente&nbsp;; votre accord de confidentialité signé sur demande, sans frais.</li>
+          <li><b>Effacement</b>Vos fichiers sont supprimés 90 jours après la livraison, ou plus tôt sur simple demande.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bande bloc" id="faq" aria-labelledby="t-faq">
+    <div class="int">
+      <div class="tete-bloc">
+        <div><span class="folio data">Questions</span><h2 class="titre" id="t-faq">Questions fréquentes</h2></div>
+        <p>Une autre question avant de commander&nbsp;? L'adresse de contact figure sur la page de commande.</p>
+      </div>
+      <div class="faq">
+        <div>
+          <details><summary>Qui fait l'audit&nbsp;?</summary><p>Un développeur fullstack indépendant, six ans d'Angular en défense, énergie et supervision industrielle, de la v2 aux signals. L'outil fait la collecte&nbsp;; chaque rapport est relu, corrigé et rédigé à la main.</p></details>
+          <details><summary>Quelles versions d'Angular&nbsp;?</summary><p>De la v2 à la v22. En dessous de la v14, l'estimation prévoit d'abord la montée de version avant les migrations automatiques. AngularJS (1.x) n'est pas couvert.</p></details>
+          <details><summary>Faut-il donner accès à notre dépôt&nbsp;?</summary><p>Non. Vous lancez l'outil et vous envoyez audit.json. Pour la formule Standard, vous envoyez aussi les sorties de trois commandes standard (npm audit, build avec statistiques, Lighthouse) et dix fichiers que vous choisissez.</p></details>
+          <details><summary>Et si le résultat ne nous sert à rien&nbsp;?</summary><p>Si vous annulez avant d'envoyer vos fichiers, vous êtes remboursé en entier. Si le délai annoncé n'est pas tenu, la formule est remboursée en entier, et le rapport vous reste acquis.</p></details>
+        </div>
+        <div>
+          <details><summary>Pouvons-nous utiliser l'outil sans commander&nbsp;?</summary><p>Oui. Il est libre et gratuit, y compris en intégration continue avec un seuil d'indice. Ce que vous achetez, c'est la relecture, le tri des faux positifs, l'avis d'expert et l'estimation ajustée.</p></details>
+          <details><summary>Comment se passe la facturation&nbsp;?</summary><p>Paiement par carte à la commande. Le reçu fait office de facture et peut porter votre raison sociale et votre numéro de TVA. Paiement par virement sur bon de commande&nbsp;: sur demande écrite.</p></details>
+          <details><summary>Faites-vous la migration ensuite&nbsp;?</summary><p>Le rapport est écrit pour que votre équipe la conduise seule. Pour la suite récurrente (montées de version, dépendances, vulnérabilités), un abonnement de maintenance existe, et le prix de l'audit y est déduit.</p></details>
+          <details><summary>Le rapport est-il en anglais&nbsp;?</summary><p>Il est en français. Une version anglaise de la synthèse est fournie sur demande, sans supplément.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bande pied">
+  <div class="int">
+    <div class="mentions">
+      <span>Consigne, studio d'outils pour développeurs et d'interfaces industrielles. <a href="__BASE__cgv.html">Conditions générales de vente</a>.</span>
+      <span><b>Mentions légales.</b> Éditeur&nbsp;: __NOM_LEGAL__, entrepreneur individuel, nom commercial Consigne, SIRET __SIRET__, __ADRESSE__, __TELEPHONE__, __EMAIL__. Directeur de la publication&nbsp;: __NOM_LEGAL__. Hébergeur&nbsp;: Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis. Cette page n'utilise ni cookie de mesure d'audience ni publicité.</span>
+      <span>Angular est une marque de Google LLC. Cette offre n'est ni affiliée à Google ni approuvée par Google. ngx-admin est un projet d'Akveo sous licence MIT, utilisé ici comme exemple public.</span>
+    </div>
+    <div class="cartouche data" aria-label="Cartouche">
+      <div><div class="k">Désignation</div><div class="v titre" style="font-size:20px">Audit Angular</div></div>
+      <div><div class="k">Repère</div><div class="v">DEV-602</div></div>
+      <div><div class="k">Rév.</div><div class="v">2026-10</div></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const el = document.getElementById('etat-v20');
+  const jours = Math.ceil((new Date(el.dataset.fin + 'T23:59:59Z') - Date.now()) / 86400000);
+  if (jours > 0) el.textContent = `Fin dans ${jours} jour${jours > 1 ? 's' : ''}`;
+  else { el.textContent = 'Hors support'; el.className = 'etat hors'; }
+})();
+document.getElementById('copier').addEventListener('click', async (ev) => {
+  const b = ev.currentTarget, t = document.getElementById('commande');
+  try { await navigator.clipboard.writeText(t.textContent); b.textContent = 'Copié'; }
+  catch { const r = document.createRange(); r.selectNodeContents(t); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Sélectionné'; }
+  setTimeout(() => { b.textContent = 'Copier'; }, 1800);
+});
+</script>

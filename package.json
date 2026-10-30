@@ -1,0 +1,16 @@
+{
+  "name": "audit-angular",
+  "version": "1.0.0",
+  "description": "Audit statique en lecture seule d'une application Angular : versions, préparation signals / v22, qualité, sécurité, performance, avec estimation de migration en jours.",
+  "type": "module",
+  "bin": { "audit-angular": "bin/audit-angular.mjs" },
+  "files": ["bin", "src", "schema", "modele", "LICENSE", "README.md"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "exemple": "node scripts/exemples.mjs"
+  },
+  "dependencies": { "typescript": "5.9.3" },
+  "keywords": ["angular", "audit", "signals", "zoneless", "migration", "securite", "performance"],
+  "license": "MIT"
+}

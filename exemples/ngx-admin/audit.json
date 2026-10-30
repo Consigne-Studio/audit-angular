@@ -1,0 +1,2643 @@
+{
+  "$schema": "https://consigne.dev/schemas/audit-angular-1.json",
+  "outil": {
+    "nom": "audit-angular",
+    "version": "1.0.0"
+  },
+  "date": "2026-10-23",
+  "projet": {
+    "nom": "ngx-admin",
+    "fichiers": 495
+  },
+  "angular": {
+    "version": "15.2.10",
+    "major": 15
+  },
+  "versions": {
+    "typescript": "4.9.5",
+    "rxjs": "6.6.2",
+    "zonejs": "0.11.5",
+    "node": null
+  },
+  "sourceVersions": "package-lock.json",
+  "configuration": {
+    "builder": "@angular-devkit/build-angular:browser",
+    "testBuilder": "@angular-devkit/build-angular:karma",
+    "budgets": [
+      "anyComponentStyle"
+    ],
+    "prod": {
+      "sourceMap": false,
+      "optimization": true
+    },
+    "tsconfig": {
+      "strict": false,
+      "noImplicitAny": false,
+      "strictTemplates": false,
+      "strictInjectionParameters": false
+    },
+    "outillage": {
+      "eslint": true,
+      "tslint": true,
+      "prettier": false,
+      "ci": [
+        ".github/workflows"
+      ],
+      "sonar": false,
+      "protractor": true,
+      "playwright": false,
+      "cypress": false,
+      "karma": true,
+      "vitest": false,
+      "jest": false
+    }
+  },
+  "dependencies": [
+    {
+      "name": "@angular-devkit/build-angular",
+      "version": "15.2.10",
+      "dev": true
+    },
+    {
+      "name": "@angular-eslint/builder",
+      "version": "15.2.1",
+      "dev": true
+    },
+    {
+      "name": "@angular-eslint/eslint-plugin",
+      "version": "15.2.1",
+      "dev": true
+    },
+    {
+      "name": "@angular-eslint/eslint-plugin-template",
+      "version": "15.2.1",
+      "dev": true
+    },
+    {
+      "name": "@angular-eslint/schematics",
+      "version": "15.2.1",
+      "dev": true
+    },
+    {
+      "name": "@angular-eslint/template-parser",
+      "version": "15.2.1",
+      "dev": true
+    },
+    {
+      "name": "@angular/animations",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/cdk",
+      "version": "15.2.9",
+      "dev": false
+    },
+    {
+      "name": "@angular/cli",
+      "version": "15.2.10",
+      "dev": true
+    },
+    {
+      "name": "@angular/common",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/compiler",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/compiler-cli",
+      "version": "15.2.10",
+      "dev": true
+    },
+    {
+      "name": "@angular/core",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/forms",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/google-maps",
+      "version": "12.2.13",
+      "dev": false
+    },
+    {
+      "name": "@angular/language-service",
+      "version": "15.2.10",
+      "dev": true
+    },
+    {
+      "name": "@angular/platform-browser",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/platform-browser-dynamic",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@angular/router",
+      "version": "15.2.10",
+      "dev": false
+    },
+    {
+      "name": "@asymmetrik/ngx-leaflet",
+      "version": "3.0.1",
+      "dev": false
+    },
+    {
+      "name": "@compodoc/compodoc",
+      "version": "1.0.1",
+      "dev": true
+    },
+    {
+      "name": "@fortawesome/fontawesome-free",
+      "version": "5.15.4",
+      "dev": true
+    },
+    {
+      "name": "@nebular/auth",
+      "version": "11.0.1",
+      "dev": false
+    },
+    {
+      "name": "@nebular/eva-icons",
+      "version": "11.0.1",
+      "dev": false
+    },
+    {
+      "name": "@nebular/security",
+      "version": "11.0.1",
+      "dev": false
+    },
+    {
+      "name": "@nebular/theme",
+      "version": "11.0.1",
+      "dev": false
+    },
+    {
+      "name": "@swimlane/ngx-charts",
+      "version": "14.0.0",
+      "dev": false
+    },
+    {
+      "name": "@types/d3-color",
+      "version": "1.0.5",
+      "dev": true
+    },
+    {
+      "name": "@types/jasmine",
+      "version": "3.3.16",
+      "dev": true
+    },
+    {
+      "name": "@types/jasminewd2",
+      "version": "2.0.3",
+      "dev": true
+    },
+    {
+      "name": "@types/leaflet",
+      "version": "1.2.3",
+      "dev": true
+    },
+    {
+      "name": "@types/node",
+      "version": "12.20.51",
+      "dev": true
+    },
+    {
+      "name": "@typescript-eslint/eslint-plugin",
+      "version": "5.54.1",
+      "dev": true
+    },
+    {
+      "name": "@typescript-eslint/parser",
+      "version": "5.54.1",
+      "dev": true
+    },
+    {
+      "name": "angular2-chartjs",
+      "version": "0.4.1",
+      "dev": false
+    },
+    {
+      "name": "bootstrap",
+      "version": "4.3.1",
+      "dev": false
+    },
+    {
+      "name": "chart.js",
+      "version": "2.7.1",
+      "dev": false
+    },
+    {
+      "name": "ckeditor",
+      "version": "4.7.3",
+      "dev": false
+    },
+    {
+      "name": "classlist.js",
+      "version": "1.1.20150312",
+      "dev": false
+    },
+    {
+      "name": "codelyzer",
+      "version": "6.0.2",
+      "dev": true
+    },
+    {
+      "name": "conventional-changelog-cli",
+      "version": "1.3.4",
+      "dev": true
+    },
+    {
+      "name": "core-js",
+      "version": "2.5.1",
+      "dev": false
+    },
+    {
+      "name": "echarts",
+      "version": "4.9.0",
+      "dev": false
+    },
+    {
+      "name": "eslint",
+      "version": "8.30.0",
+      "dev": true
+    },
+    {
+      "name": "eva-icons",
+      "version": "1.1.3",
+      "dev": false
+    },
+    {
+      "name": "husky",
+      "version": "0.13.3",
+      "dev": true
+    },
+    {
+      "name": "intl",
+      "version": "1.2.5",
+      "dev": false
+    },
+    {
+      "name": "ionicons",
+      "version": "2.0.1",
+      "dev": false
+    },
+    {
+      "name": "jasmine-core",
+      "version": "3.6.0",
+      "dev": true
+    },
+    {
+      "name": "jasmine-spec-reporter",
+      "version": "5.0.2",
+      "dev": true
+    },
+    {
+      "name": "karma",
+      "version": "6.3.19",
+      "dev": true
+    },
+    {
+      "name": "karma-chrome-launcher",
+      "version": "3.1.1",
+      "dev": true
+    },
+    {
+      "name": "karma-cli",
+      "version": "1.0.1",
+      "dev": true
+    },
+    {
+      "name": "karma-coverage-istanbul-reporter",
+      "version": "3.0.3",
+      "dev": true
+    },
+    {
+      "name": "karma-jasmine",
+      "version": "4.0.2",
+      "dev": true
+    },
+    {
+      "name": "karma-jasmine-html-reporter",
+      "version": "1.7.0",
+      "dev": true
+    },
+    {
+      "name": "leaflet",
+      "version": "1.2.0",
+      "dev": false
+    },
+    {
+      "name": "nebular-icons",
+      "version": "1.1.0",
+      "dev": false
+    },
+    {
+      "name": "ng2-ckeditor",
+      "version": "1.2.9",
+      "dev": false
+    },
+    {
+      "name": "ng2-completer",
+      "version": "9.0.1",
+      "dev": false
+    },
+    {
+      "name": "ng2-smart-table",
+      "version": "1.7.2",
+      "dev": false
+    },
+    {
+      "name": "ngx-echarts",
+      "version": "4.2.2",
+      "dev": false
+    },
+    {
+      "name": "node-sass",
+      "version": "4.14.1",
+      "dev": false
+    },
+    {
+      "name": "normalize.css",
+      "version": "6.0.0",
+      "dev": false
+    },
+    {
+      "name": "npm-run-all",
+      "version": "4.0.2",
+      "dev": true
+    },
+    {
+      "name": "pace-js",
+      "version": "1.0.2",
+      "dev": false
+    },
+    {
+      "name": "protractor",
+      "version": "7.0.0",
+      "dev": true
+    },
+    {
+      "name": "rimraf",
+      "version": "2.6.1",
+      "dev": true
+    },
+    {
+      "name": "roboto-fontface",
+      "version": "0.8.0",
+      "dev": false
+    },
+    {
+      "name": "rxjs",
+      "version": "6.6.2",
+      "dev": false
+    },
+    {
+      "name": "rxjs-compat",
+      "version": "6.3.0",
+      "dev": false
+    },
+    {
+      "name": "socicon",
+      "version": "3.0.5",
+      "dev": false
+    },
+    {
+      "name": "style-loader",
+      "version": "1.3.0",
+      "dev": false
+    },
+    {
+      "name": "stylelint",
+      "version": "7.13.0",
+      "dev": true
+    },
+    {
+      "name": "tinymce",
+      "version": "4.5.7",
+      "dev": false
+    },
+    {
+      "name": "ts-node",
+      "version": "3.2.2",
+      "dev": true
+    },
+    {
+      "name": "tslib",
+      "version": "2.4.0",
+      "dev": false
+    },
+    {
+      "name": "tslint",
+      "version": "6.1.3",
+      "dev": true
+    },
+    {
+      "name": "tslint-language-service",
+      "version": "0.9.9",
+      "dev": true
+    },
+    {
+      "name": "typeface-exo",
+      "version": "0.0.22",
+      "dev": false
+    },
+    {
+      "name": "typescript",
+      "version": "4.9.5",
+      "dev": true
+    },
+    {
+      "name": "web-animations-js",
+      "version": "2.3.2",
+      "dev": false
+    },
+    {
+      "name": "zone.js",
+      "version": "0.11.5",
+      "dev": false
+    }
+  ],
+  "indicateurs": {
+    "fichiersTs": 241,
+    "lignesTs": 14313,
+    "fichiersTest": 0,
+    "gabarits": 144,
+    "composants": 144,
+    "standalone": 0,
+    "pctStandalone": 0,
+    "onPush": 1,
+    "pctOnPush": 1,
+    "ngModules": 29,
+    "decorateursAnciens": 79,
+    "entreesSortiesSignals": 0,
+    "pctEntreesSortiesSignals": 0,
+    "requetesSignals": 0,
+    "signalsEtat": 0,
+    "controleFluxNouveau": 0,
+    "controleFluxAncien": 47,
+    "pctControleFluxNouveau": 0,
+    "injectionConstructeur": 136,
+    "injectFonction": 0,
+    "pctInject": 0,
+    "zoneless": false,
+    "subscribe": 93,
+    "nettoyageAbonnements": 31,
+    "any": 180,
+    "routesDifferees": 11,
+    "routesDirectes": 60,
+    "pctRoutesDifferees": 15,
+    "defer": 0,
+    "pctComposantsTestes": 0
+  },
+  "scores": {
+    "versions": 8,
+    "migration": 67,
+    "qualite": 11,
+    "securite": 58,
+    "performance": 71,
+    "global": 40
+  },
+  "findings": [
+    {
+      "id": "SEC-101",
+      "axe": "securite",
+      "severity": "P1",
+      "title": "100 vulnérabilité(s) critique(s) ou haute(s) dans les dépendances",
+      "detail": "npm audit : 10 critique(s), 90 haute(s), 42 modérée(s), 12 faible(s).",
+      "recommandation": "Appliquer les correctifs disponibles (`npm audit fix`, sans --force) ; pour les autres, la montée de version d'Angular et des bibliothèques est le correctif.",
+      "count": 100,
+      "emplacements": [
+        {
+          "fichier": "form-data",
+          "ligne": null,
+          "info": "critical, correctif : node-sass@9.0.0 (majeure)"
+        },
+        {
+          "fichier": "handlebars",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "loader-utils",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "piscina",
+          "ligne": null,
+          "info": "critical, correctif : @angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "proxy-addr",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "request",
+          "ligne": null,
+          "info": "critical, correctif : node-sass@9.0.0 (majeure)"
+        },
+        {
+          "fichier": "shell-quote",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "socket.io-parser",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "tar",
+          "ligne": null,
+          "info": "critical, correctif : @angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "websocket-driver",
+          "ligne": null,
+          "info": "critical, correctif : oui"
+        },
+        {
+          "fichier": "@angular-devkit/build-angular",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "@angular/cli",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "@angular/common",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular/common@21.2.25 (majeure)"
+        },
+        {
+          "fichier": "@angular/compiler",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular/compiler@21.2.25 (majeure)"
+        },
+        {
+          "fichier": "@angular/core",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular/core@21.2.25 (majeure)"
+        },
+        {
+          "fichier": "@angular/router",
+          "ligne": null,
+          "info": "high, direct, correctif : @angular/router@21.2.25 (majeure)"
+        },
+        {
+          "fichier": "@babel/plugin-transform-modules-systemjs",
+          "ligne": null,
+          "info": "high, correctif : oui"
+        },
+        {
+          "fichier": "@compodoc/compodoc",
+          "ligne": null,
+          "info": "high, direct, correctif : @compodoc/compodoc@1.2.1"
+        },
+        {
+          "fichier": "@npmcli/run-script",
+          "ligne": null,
+          "info": "high, correctif : @angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "@sigstore/sign",
+          "ligne": null,
+          "info": "high, correctif : @angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "@sigstore/tuf",
+          "ligne": null,
+          "info": "high, correctif : @angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "fichier": "@swimlane/ngx-charts",
+          "ligne": null,
+          "info": "high, direct, correctif : @swimlane/ngx-charts@25.0.3 (majeure)"
+        },
+        {
+          "fichier": "adm-zip",
+          "ligne": null,
+          "info": "high, correctif : protractor@6.0.0 (majeure)"
+        },
+        {
+          "fichier": "autoprefixer",
+          "ligne": null,
+          "info": "high, correctif : stylelint@17.16.0 (majeure)"
+        },
+        {
+          "fichier": "body-parser",
+          "ligne": null,
+          "info": "high, correctif : oui"
+        }
+      ]
+    },
+    {
+      "id": "VER-001",
+      "severity": "P1",
+      "axe": "versions",
+      "title": "Angular 15 n'est plus supporté",
+      "detail": "Version installée : 15.2.10. Plus aucun correctif de sécurité officiel. Écart avec la dernière version : 7 version(s) majeure(s).",
+      "recommandation": "Planifier la montée vers Angular 22, une version majeure à la fois (`ng update`), voir l'estimation.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-angular2-chartjs",
+      "severity": "P2",
+      "axe": "versions",
+      "title": "angular2-chartjs n'est plus maintenu",
+      "detail": "angular2-chartjs 0.4.1",
+      "recommandation": "Remplacer par ng2-charts ou une intégration directe de Chart.js.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-node-sass",
+      "severity": "P2",
+      "axe": "versions",
+      "title": "node-sass est abandonné",
+      "detail": "node-sass 4.14.1",
+      "recommandation": "Utiliser sass (Dart Sass), déjà inclus dans le CLI Angular.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-protractor",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "Protractor est arrêté depuis 2023",
+      "detail": "protractor 7.0.0 (développement)",
+      "recommandation": "Réécrire les tests de bout en bout avec Playwright ou Cypress.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-rxjs-compat",
+      "severity": "P2",
+      "axe": "versions",
+      "title": "rxjs-compat maintient l'API de RxJS 5",
+      "detail": "rxjs-compat 6.3.0",
+      "recommandation": "Réécrire les imports et opérateurs, puis supprimer rxjs-compat.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-tslint",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "TSLint est abandonné depuis 2019",
+      "detail": "tslint 6.1.3 (développement)",
+      "recommandation": "Passer à ESLint avec angular-eslint (`ng add @angular-eslint/schematics`).",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "MIG-001",
+      "severity": "P2",
+      "axe": "migration",
+      "title": "29 NgModule(s), 144 composant(s) non standalone",
+      "detail": "0 % des composants sont standalone.",
+      "recommandation": "Migration officielle : `ng generate @angular/core:standalone` (3 passes), puis supprimer les modules vides.",
+      "count": 29,
+      "emplacements": [
+        {
+          "fichier": "src/app/@core/core.module.ts",
+          "ligne": 148,
+          "info": "CoreModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/@core/mock/mock-data.module.ts",
+          "ligne": 48,
+          "info": "MockDataModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/@theme/theme.module.ts",
+          "ligne": 73,
+          "info": "ThemeModule (2 déclarations)"
+        },
+        {
+          "fichier": "src/app/app-routing.module.ts",
+          "ligne": 56,
+          "info": "AppRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/app.module.ts",
+          "ligne": 24,
+          "info": "AppModule (1 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/charts/charts-routing.module.ts",
+          "ligne": 24,
+          "info": "ChartsRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/charts/charts.module.ts",
+          "ligne": 52,
+          "info": "ChartsModule (2 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/dashboard.module.ts",
+          "ligne": 34,
+          "info": "DashboardModule (16 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/e-commerce.module.ts",
+          "ligne": 59,
+          "info": "ECommerceModule (32 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/editors/editors-routing.module.ts",
+          "ligne": 20,
+          "info": "EditorsRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/editors/editors.module.ts",
+          "ligne": 9,
+          "info": "EditorsModule (1 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/extra-components/extra-components-routing.module.ts",
+          "ligne": 43,
+          "info": "ExtraComponentsRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/extra-components/extra-components.module.ts",
+          "ligne": 78,
+          "info": "ExtraComponentsModule (1 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/forms/forms-routing.module.ts",
+          "ligne": 39,
+          "info": "FormsRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/forms/forms.module.ts",
+          "ligne": 23,
+          "info": "FormsModule (5 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/layout/layout-routing.module.ts",
+          "ligne": 53,
+          "info": "LayoutRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/layout/layout.module.ts",
+          "ligne": 25,
+          "info": "LayoutModule (10 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/maps/maps-routing.module.ts",
+          "ligne": 30,
+          "info": "MapsRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/maps/maps.module.ts",
+          "ligne": 10,
+          "info": "MapsModule (1 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/miscellaneous/miscellaneous-routing.module.ts",
+          "ligne": 20,
+          "info": "MiscellaneousRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/miscellaneous/miscellaneous.module.ts",
+          "ligne": 9,
+          "info": "MiscellaneousModule (2 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/modal-overlays/modal-overlays-routing.module.ts",
+          "ligne": 37,
+          "info": "ModalOverlaysRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/modal-overlays/modal-overlays.module.ts",
+          "ligne": 79,
+          "info": "ModalOverlaysModule (1 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/pages-routing.module.ts",
+          "ligne": 83,
+          "info": "PagesRoutingModule (0 déclarations)"
+        },
+        {
+          "fichier": "src/app/pages/pages.module.ts",
+          "ligne": 11,
+          "info": "PagesModule (1 déclarations)"
+        }
+      ]
+    },
+    {
+      "id": "PER-001",
+      "severity": "P2",
+      "axe": "performance",
+      "title": "Constructeur webpack historique (browser)",
+      "detail": "builder : @angular-devkit/build-angular:browser. Le constructeur « application » (esbuild + Vite) est le défaut depuis Angular 17 : builds 2 à 4 fois plus rapides selon l'équipe Angular.",
+      "recommandation": "Migration officielle : `ng update @angular/cli --name use-application-builder`.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "QUA-001",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "Mode strict TypeScript désactivé",
+      "detail": "strict : false, noImplicitAny : false.",
+      "recommandation": "Activer `strict` progressivement (d'abord noImplicitAny et strictNullChecks, dossier par dossier).",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "QUA-002",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "Vérification stricte des gabarits désactivée",
+      "detail": "angularCompilerOptions.strictTemplates n'est pas activé : les erreurs de type dans les gabarits passent la compilation.",
+      "recommandation": "Activer `strictTemplates` et corriger les erreurs remontées.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "QUA-003",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "180 type(s) any",
+      "detail": "12.6 pour 1 000 lignes de TypeScript.",
+      "recommandation": "Remplacer par des types métier ou unknown, interdire avec @typescript-eslint/no-explicit-any.",
+      "count": 180,
+      "emplacements": [
+        {
+          "fichier": "src/app/@core/data/earning.ts",
+          "ligne": 18
+        },
+        {
+          "fichier": "src/app/@core/data/smart-table.ts",
+          "ligne": 3
+        },
+        {
+          "fichier": "src/app/@core/mock/earning.service.ts",
+          "ligne": 82
+        },
+        {
+          "fichier": "src/app/@core/mock/profit-bar-animation-chart.service.ts",
+          "ligne": 8
+        },
+        {
+          "fichier": "src/app/@core/mock/users.service.ts",
+          "ligne": 42
+        },
+        {
+          "fichier": "src/app/@core/module-import-guard.ts",
+          "ligne": 1
+        },
+        {
+          "fichier": "src/app/@core/utils/analytics.service.ts",
+          "ligne": 6
+        },
+        {
+          "fichier": "src/app/@core/utils/layout.service.ts",
+          "ligne": 17
+        },
+        {
+          "fichier": "src/app/@core/utils/layout.service.ts",
+          "ligne": 21
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 10
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 29
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 69
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 69
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 73
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 77
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 81
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 81
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 85
+        },
+        {
+          "fichier": "src/app/@core/utils/state.service.ts",
+          "ligne": 89
+        },
+        {
+          "fichier": "src/app/@theme/components/header/header.component.ts",
+          "ligne": 18
+        },
+        {
+          "fichier": "src/app/@theme/components/header/header.component.ts",
+          "ligne": 56
+        },
+        {
+          "fichier": "src/app/@theme/components/tiny-mce/tiny-mce.component.ts",
+          "ligne": 10
+        },
+        {
+          "fichier": "src/app/@theme/components/tiny-mce/tiny-mce.component.ts",
+          "ligne": 12
+        },
+        {
+          "fichier": "src/app/pages/charts/chartjs/chartjs-bar-horizontal.component.ts",
+          "ligne": 11
+        },
+        {
+          "fichier": "src/app/pages/charts/chartjs/chartjs-bar-horizontal.component.ts",
+          "ligne": 12
+        }
+      ]
+    },
+    {
+      "id": "QUA-008",
+      "severity": "P2",
+      "axe": "qualite",
+      "title": "0 % des fichiers de composants ont un test",
+      "detail": "139 fichier(s) de composants sans fichier .spec.ts voisin (présence seulement : la couverture réelle demande d'exécuter les tests).",
+      "recommandation": "Tester d'abord les composants à logique ; viser les écrans critiques avant la montée de version.",
+      "count": 139,
+      "emplacements": []
+    },
+    {
+      "id": "SEC-008",
+      "severity": "P2",
+      "axe": "securite",
+      "title": "1 clé(s) d'API Google dans le code",
+      "detail": "Une clé Google côté navigateur est publique par nature ; le risque est une clé sans restriction, utilisable par n'importe qui à vos frais. Valeur masquée dans ce rapport.",
+      "recommandation": "Vérifier dans la console Google Cloud que la clé est restreinte par référent HTTP et par API ; la passer en configuration d'environnement.",
+      "count": 1,
+      "emplacements": [
+        {
+          "fichier": "src/app/app.module.ts",
+          "ligne": 38,
+          "info": "clé d'API Google (valeur masquée)"
+        }
+      ]
+    },
+    {
+      "id": "VER-003",
+      "severity": "P2",
+      "axe": "versions",
+      "title": "Paquets Angular de versions majeures différentes",
+      "detail": "@angular/google-maps 12.2.13",
+      "recommandation": "Aligner tous les paquets @angular/* sur la même version majeure (`ng update`).",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "VER-010",
+      "severity": "P2",
+      "axe": "versions",
+      "title": "RxJS 6.6.2 : Angular demande RxJS 7 depuis la v14",
+      "detail": "Montée RxJS 6 → 7 obligatoire avant Angular 15+ (toPromise déprécié, types plus stricts).",
+      "recommandation": "Monter RxJS en 7.8, remplacer toPromise() par firstValueFrom / lastValueFrom.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-codelyzer",
+      "severity": "P3",
+      "axe": "qualite",
+      "title": "Codelyzer (règles TSLint) est abandonné",
+      "detail": "codelyzer 6.0.2 (développement)",
+      "recommandation": "Supprimer avec TSLint, règles équivalentes dans angular-eslint.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "MIG-002",
+      "severity": "P3",
+      "axe": "migration",
+      "title": "47 directive(s) structurelle(s) *ngIf / *ngFor / ngSwitch",
+      "detail": "0 % du contrôle de flux utilise la syntaxe @if / @for / @switch.",
+      "recommandation": "Migration officielle : `ng generate @angular/core:control-flow`. Les *ngFor deviennent @for avec `track` obligatoire.",
+      "count": 47,
+      "emplacements": [
+        {
+          "fichier": "src/app/pages/dashboard/traffic/traffic.component.ts",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component.ts",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/tables/tree-grid/tree-grid.component.ts",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/@theme/components/header/header.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/contacts/contacts.component.html",
+          "ligne": null,
+          "info": "2 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/dashboard.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/electricity/electricity.component.html",
+          "ligne": null,
+          "info": "3 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/room-selector/room-selector.component.html",
+          "ligne": null,
+          "info": "3 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/security-cameras/security-cameras.component.html",
+          "ligne": null,
+          "info": "3 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.html",
+          "ligne": null,
+          "info": "2 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/legend-chart/legend-chart.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/progress-section/progress-section.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/front-side/traffic-front-card.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/user-activity/user-activity.component.html",
+          "ligne": null,
+          "info": "2 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/extra-components/chat/chat.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/forms/buttons/buttons.component.html",
+          "ligne": null,
+          "info": "6 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/layout/infinite-list/infinite-list.component.html",
+          "ligne": null,
+          "info": "4 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/layout/list/list.component.html",
+          "ligne": null,
+          "info": "2 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/modal-overlays/dialog/dialog.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/modal-overlays/toastr/toastr.component.html",
+          "ligne": null,
+          "info": "2 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/tables/tree-grid/tree-grid.component.html",
+          "ligne": null,
+          "info": "1 occurrence(s)"
+        },
+        {
+          "fichier": "src/app/pages/ui-features/icons/icons.component.html",
+          "ligne": null,
+          "info": "4 occurrence(s)"
+        }
+      ]
+    },
+    {
+      "id": "MIG-003",
+      "severity": "P3",
+      "axe": "migration",
+      "title": "62 @Input / @Output à décorateur",
+      "detail": "0 % des entrées / sorties utilisent input() / output() / model().",
+      "recommandation": "Migrations officielles : `ng generate @angular/core:signal-input-migration` et `output-migration`. Revoir à la main les entrées modifiées dans le composant.",
+      "count": 62,
+      "emplacements": [
+        {
+          "fichier": "src/app/@theme/components/search-input/search-input.component.ts",
+          "ligne": null,
+          "info": "0 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/@theme/components/tiny-mce/tiny-mce.component.ts",
+          "ligne": null,
+          "info": "0 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/electricity/electricity-chart/electricity-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/player/player.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/room-selector/room-selector.component.ts",
+          "ligne": null,
+          "info": "0 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/solar/solar.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/status-card/status-card.component.ts",
+          "ligne": null,
+          "info": "3 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.ts",
+          "ligne": null,
+          "info": "13 @Input, 2 @Output"
+        },
+        {
+          "fichier": "src/app/pages/dashboard/traffic/traffic-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/charts/orders-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/charts/profit-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/country-orders/chart/country-orders-chart.component.ts",
+          "ligne": null,
+          "info": "4 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/country-orders/map/country-orders-map.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/earning-card/back-side/earning-pie-chart.component.ts",
+          "ligne": null,
+          "info": "2 @Input, 1 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/earning-card/front-side/earning-live-update-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/legend-chart/legend-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/profit-card/back-side/stats-area-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/profit-card/front-side/stats-bar-animation-chart.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/slide-out/slide-out.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/back-side/traffic-back-card.component.ts",
+          "ligne": null,
+          "info": "1 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/back-side/traffic-bar-chart.component.ts",
+          "ligne": null,
+          "info": "3 @Input, 0 @Output"
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/front-side/traffic-bar/traffic-bar.component.ts",
+          "ligne": null,
+          "info": "2 @Input, 0 @Output"
+        }
+      ]
+    },
+    {
+      "id": "MIG-006",
+      "severity": "P3",
+      "axe": "migration",
+      "title": "Application dépendante de zone.js",
+      "detail": "143 composant(s) sur 144 sans ChangeDetectionStrategy.OnPush ; 1 fichier(s) importent NgZone. Depuis Angular 21, les nouvelles applications sont sans zone.js par défaut.",
+      "recommandation": "Passer les composants en OnPush, remplacer les mutations par des signals, retirer NgZone, puis `provideZonelessChangeDetection()`. Outil MCP officiel : `onpush_zoneless_migration`.",
+      "count": 143,
+      "emplacements": [
+        {
+          "fichier": "src/app/pages/maps/search-map/search/search.component.ts",
+          "ligne": 1,
+          "info": "import de NgZone"
+        }
+      ]
+    },
+    {
+      "id": "PER-002",
+      "severity": "P3",
+      "axe": "performance",
+      "title": "Pas de budget sur le bundle initial",
+      "detail": "Budgets configurés : anyComponentStyle.",
+      "recommandation": "Ajouter un budget « initial » (avertissement / erreur) dans la configuration de production.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "PER-004",
+      "severity": "P3",
+      "axe": "performance",
+      "title": "15 % des routes chargées à la demande",
+      "detail": "11 route(s) différée(s), 60 chargée(s) d'emblée.",
+      "recommandation": "Charger les fonctionnalités avec loadComponent / loadChildren, et @defer pour les blocs lourds.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "PER-007",
+      "severity": "P3",
+      "axe": "performance",
+      "title": "2 fichier(s) statique(s) de plus de 500 Ko",
+      "detail": "src/assets/images/team.png (610 Ko), src/assets/map/world.json (987 Ko)",
+      "recommandation": "Compresser (WebP / AVIF), redimensionner, NgOptimizedImage.",
+      "count": 2,
+      "emplacements": [
+        {
+          "fichier": "src/assets/images/team.png",
+          "ligne": null,
+          "info": "610 Ko"
+        },
+        {
+          "fichier": "src/assets/map/world.json",
+          "ligne": null,
+          "info": "987 Ko"
+        }
+      ]
+    },
+    {
+      "id": "QUA-007",
+      "severity": "P3",
+      "axe": "qualite",
+      "title": "1 composant(s) de plus de 400 lignes",
+      "detail": "Composants difficiles à tester et à faire évoluer.",
+      "recommandation": "Extraire la logique dans des services ou des composants enfants.",
+      "count": 1,
+      "emplacements": [
+        {
+          "fichier": "src/app/pages/maps/bubble/bubble-map.component.ts",
+          "ligne": 8,
+          "info": "BubbleMapComponent : 540 lignes"
+        }
+      ]
+    },
+    {
+      "id": "QUA-009",
+      "severity": "P3",
+      "axe": "qualite",
+      "title": "Tests unitaires sous Karma",
+      "detail": "Karma est déprécié par son équipe ; Vitest est le lanceur par défaut des nouveaux projets Angular depuis la v21.",
+      "recommandation": "Migrer vers Vitest (schematic expérimental `@schematics/angular:refactor-jasmine-vitest`) ou Jest.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "SEC-007",
+      "severity": "P3",
+      "axe": "securite",
+      "title": "2 URL(s) en http:// non chiffré",
+      "detail": "Contenu mixte bloqué par les navigateurs en HTTPS, ou trafic en clair.",
+      "recommandation": "Passer en https:// ou en chemins relatifs configurés par environnement.",
+      "count": 2,
+      "emplacements": [
+        {
+          "fichier": "src/app/pages/extra-components/chat/bot-replies.ts",
+          "ligne": 7,
+          "info": "http://www.reactiongifs.com/r/wnd1.gif"
+        },
+        {
+          "fichier": "src/app/pages/extra-components/chat/bot-replies.ts",
+          "ligne": 17,
+          "info": "http://google.com"
+        }
+      ]
+    },
+    {
+      "id": "VER-011",
+      "severity": "P3",
+      "axe": "versions",
+      "title": "TypeScript 4.9.5",
+      "detail": "Angular 17+ demande TypeScript 5.2 ou plus.",
+      "recommandation": "Monter TypeScript avec Angular (géré par `ng update`).",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "DEP-ngx-echarts",
+      "severity": "P4",
+      "axe": "versions",
+      "title": "Bibliothèque de graphiques liée aux versions d'Angular",
+      "detail": "ngx-echarts 4.2.2",
+      "recommandation": "Vérifier la version compatible avant la montée.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "MIG-004",
+      "severity": "P4",
+      "axe": "migration",
+      "title": "8 requête(s) @ViewChild / @ContentChild à décorateur",
+      "detail": "Les requêtes signals (viewChild(), contentChild()) suppriment les problèmes de cycle de vie (ngAfterViewInit).",
+      "recommandation": "Migration officielle : `ng generate @angular/core:signal-queries-migration`.",
+      "count": 8,
+      "emplacements": []
+    },
+    {
+      "id": "MIG-005",
+      "severity": "P4",
+      "axe": "migration",
+      "title": "136 injection(s) par constructeur",
+      "detail": "0 % des injections utilisent inject().",
+      "recommandation": "Migration officielle : `ng generate @angular/core:inject`.",
+      "count": 136,
+      "emplacements": []
+    },
+    {
+      "id": "MIG-007",
+      "severity": "P4",
+      "axe": "migration",
+      "title": "Aucun état en signals",
+      "detail": "93 appel(s) à subscribe(), 0 signal() / computed().",
+      "recommandation": "Commencer par les états locaux des composants (signal, computed) et toSignal() pour les flux HTTP.",
+      "count": 1,
+      "emplacements": []
+    },
+    {
+      "id": "PER-005",
+      "severity": "P4",
+      "axe": "performance",
+      "title": "43 *ngFor sans trackBy",
+      "detail": "Toute la liste est recréée dans le DOM à chaque changement de référence.",
+      "recommandation": "La migration vers @for impose `track` et règle le point.",
+      "count": 43,
+      "emplacements": [
+        {
+          "fichier": "src/app/pages/dashboard/traffic/traffic.component.ts",
+          "ligne": 16
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component.ts",
+          "ligne": 8
+        },
+        {
+          "fichier": "src/app/@theme/components/header/header.component.html",
+          "ligne": 9
+        },
+        {
+          "fichier": "src/app/pages/dashboard/contacts/contacts.component.html",
+          "ligne": 6
+        },
+        {
+          "fichier": "src/app/pages/dashboard/contacts/contacts.component.html",
+          "ligne": 15
+        },
+        {
+          "fichier": "src/app/pages/dashboard/dashboard.component.html",
+          "ligne": 2
+        },
+        {
+          "fichier": "src/app/pages/dashboard/electricity/electricity.component.html",
+          "ligne": 8
+        },
+        {
+          "fichier": "src/app/pages/dashboard/electricity/electricity.component.html",
+          "ligne": 10
+        },
+        {
+          "fichier": "src/app/pages/dashboard/electricity/electricity.component.html",
+          "ligne": 41
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/room-selector/room-selector.component.html",
+          "ligne": 72
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/room-selector/room-selector.component.html",
+          "ligne": 78
+        },
+        {
+          "fichier": "src/app/pages/dashboard/rooms/room-selector/room-selector.component.html",
+          "ligne": 81
+        },
+        {
+          "fichier": "src/app/pages/dashboard/security-cameras/security-cameras.component.html",
+          "ligne": 32
+        },
+        {
+          "fichier": "src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.html",
+          "ligne": 24
+        },
+        {
+          "fichier": "src/app/pages/dashboard/temperature/temperature-dragger/temperature-dragger.component.html",
+          "ligne": 27
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/charts-panel/chart-panel-header/chart-panel-header.component.html",
+          "ligne": 4
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/earning-card/front-side/earning-card-front.component.html",
+          "ligne": 3
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/legend-chart/legend-chart.component.html",
+          "ligne": 1
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/progress-section/progress-section.component.html",
+          "ligne": 3
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/traffic-reveal-card/traffic-cards-header/traffic-cards-header.component.html",
+          "ligne": 4
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/user-activity/user-activity.component.html",
+          "ligne": 6
+        },
+        {
+          "fichier": "src/app/pages/e-commerce/user-activity/user-activity.component.html",
+          "ligne": 11
+        },
+        {
+          "fichier": "src/app/pages/extra-components/chat/chat.component.html",
+          "ligne": 10
+        },
+        {
+          "fichier": "src/app/pages/forms/buttons/buttons.component.html",
+          "ligne": 7
+        },
+        {
+          "fichier": "src/app/pages/forms/buttons/buttons.component.html",
+          "ligne": 21
+        }
+      ]
+    },
+    {
+      "id": "QUA-005",
+      "severity": "P4",
+      "axe": "qualite",
+      "title": "1 appel(s) console.*",
+      "detail": "Traces qui partent en production.",
+      "recommandation": "Passer par un service de journalisation ; règle ESLint no-console.",
+      "count": 1,
+      "emplacements": [
+        {
+          "fichier": "src/main.ts",
+          "ligne": 17
+        }
+      ]
+    }
+  ],
+  "estimation": {
+    "lots": [
+      {
+        "id": "montee",
+        "titre": "Montée de version Angular 15 → 22 (7 étape(s) `ng update`)",
+        "bas": 3.5,
+        "haut": 7,
+        "base": "7 version(s) majeure(s) × 0,5 à 1 j × facteur de taille 1.0"
+      },
+      {
+        "id": "dependances",
+        "titre": "Dépendances bloquantes ou liées à Angular",
+        "bas": 3,
+        "haut": 9,
+        "base": "3 remplacement(s) × 1 à 3 j, 0 montée(s) de bibliothèque × 0,5 à 2 j"
+      },
+      {
+        "id": "rxjs",
+        "titre": "RxJS 6 → 7",
+        "bas": 0.5,
+        "haut": 2,
+        "base": "0,5 à 2 j × facteur de taille"
+      },
+      {
+        "id": "builder",
+        "titre": "Passage au constructeur application (esbuild)",
+        "bas": 0.5,
+        "haut": 2,
+        "base": "migration officielle + correctifs de configuration"
+      },
+      {
+        "id": "standalone",
+        "titre": "Composants standalone, suppression des NgModules",
+        "bas": 1.5,
+        "haut": 6.5,
+        "base": "migration officielle ; 0,05 à 0,2 j de reprise par module (29)"
+      },
+      {
+        "id": "controle-flux",
+        "titre": "Contrôle de flux @if / @for / @switch",
+        "bas": 0.5,
+        "haut": 0.5,
+        "base": "migration officielle ; 0,002 à 0,01 j de relecture par occurrence (47)"
+      },
+      {
+        "id": "signals-io",
+        "titre": "Entrées, sorties et requêtes en signals",
+        "bas": 0.5,
+        "haut": 2,
+        "base": "migrations officielles ; 0,005 à 0,03 j par décorateur (70)"
+      },
+      {
+        "id": "inject",
+        "titre": "Injection avec inject()",
+        "bas": 0.5,
+        "haut": 1,
+        "base": "migration officielle (136 paramètres)"
+      },
+      {
+        "id": "zoneless",
+        "titre": "Passage sans zone.js (OnPush, signals, recette)",
+        "bas": 5.5,
+        "haut": 13.5,
+        "base": "143 composant(s) à passer en OnPush × 0,03 à 0,08 j, 1 usage(s) de NgZone × 0,1 à 0,3 j, + 1 à 2 j de recette"
+      },
+      {
+        "id": "vitest",
+        "titre": "Tests unitaires Karma → Vitest",
+        "bas": 0.5,
+        "haut": 2,
+        "base": "0 fichier(s) de test"
+      },
+      {
+        "id": "e2e",
+        "titre": "Tests de bout en bout Protractor → Playwright",
+        "bas": 1,
+        "haut": 3,
+        "base": "0 fichier(s) e2e"
+      },
+      {
+        "id": "lint",
+        "titre": "Passage à ESLint (angular-eslint)",
+        "bas": 0.5,
+        "haut": 1.5,
+        "base": "schematic + correction des règles"
+      },
+      {
+        "id": "strict",
+        "titre": "Mode strict TypeScript",
+        "bas": 2.5,
+        "haut": 6.5,
+        "base": "0,5 à 1,2 j × facteur de taille + 0,01 à 0,03 j par any (180)"
+      },
+      {
+        "id": "recette",
+        "titre": "Recette de non-régression et livraison",
+        "bas": 2.5,
+        "haut": 5.5,
+        "base": "forfait selon le nombre de lots (13)"
+      }
+    ],
+    "total": {
+      "bas": 23,
+      "haut": 62
+    },
+    "hypotheses": "Développeur Angular expérimenté, migrations officielles utilisées, tests existants exécutables. Hors évolutions fonctionnelles et hors reprise de bibliothèques internes non analysées."
+  },
+  "mesures": {
+    "npmAudit": {
+      "totaux": {
+        "info": 0,
+        "low": 12,
+        "moderate": 42,
+        "high": 90,
+        "critical": 10,
+        "total": 154
+      },
+      "paquets": [
+        {
+          "nom": "form-data",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "handlebars",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "loader-utils",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "piscina",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "proxy-addr",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "request",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "shell-quote",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "socket.io-parser",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "tar",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "websocket-driver",
+          "severite": "critical",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@angular-devkit/build-angular",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@angular/cli",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@angular/common",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular/common@21.2.25 (majeure)"
+        },
+        {
+          "nom": "@angular/compiler",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular/compiler@21.2.25 (majeure)"
+        },
+        {
+          "nom": "@angular/core",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular/core@21.2.25 (majeure)"
+        },
+        {
+          "nom": "@angular/router",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@angular/router@21.2.25 (majeure)"
+        },
+        {
+          "nom": "@babel/plugin-transform-modules-systemjs",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@compodoc/compodoc",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "@npmcli/run-script",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@sigstore/sign",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@sigstore/tuf",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@swimlane/ngx-charts",
+          "severite": "high",
+          "direct": true,
+          "correctif": "@swimlane/ngx-charts@25.0.3 (majeure)"
+        },
+        {
+          "nom": "adm-zip",
+          "severite": "high",
+          "direct": false,
+          "correctif": "protractor@6.0.0 (majeure)"
+        },
+        {
+          "nom": "autoprefixer",
+          "severite": "high",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "body-parser",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "brace-expansion",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "braces",
+          "severite": "high",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "browserslist",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "cacache",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "chart.js",
+          "severite": "high",
+          "direct": true,
+          "correctif": "chart.js@2.9.4"
+        },
+        {
+          "nom": "compare-func",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "compression",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "connect",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "conventional-changelog",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "conventional-changelog-angular",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "conventional-changelog-cli",
+          "severite": "high",
+          "direct": true,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "conventional-changelog-core",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "conventional-changelog-jshint",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "conventional-changelog-writer",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "conventional-commits-parser",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "cross-spawn",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "d3-color",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@swimlane/ngx-charts@25.0.3 (majeure)"
+        },
+        {
+          "nom": "debug",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "decode-uri-component",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "doiuse",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "dot-prop",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "engine.io",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "express",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "finalhandler",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "flatted",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "gaze",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "git-raw-commits",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "git-semver-tags",
+          "severite": "high",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "glob",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "globule",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "gulp-util",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "http-cache-semantics",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "http-proxy-middleware",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "immutable",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "ip",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "js-yaml",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "json5",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "live-server",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "lodash",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "lodash.template",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "make-fetch-happen",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "marked",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "meow",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "micromatch",
+          "severite": "high",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "minimatch",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "moment",
+          "severite": "high",
+          "direct": false,
+          "correctif": "chart.js@2.9.4"
+        },
+        {
+          "nom": "nanoid",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "node-forge",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "node-gyp",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "node-sass",
+          "severite": "high",
+          "direct": true,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "npm-registry-fetch",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "npm-run-all",
+          "severite": "high",
+          "direct": true,
+          "correctif": "npm-run-all@4.1.5"
+        },
+        {
+          "nom": "pacote",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "path-to-regexp",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "picomatch",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "postcss",
+          "severite": "high",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "protractor",
+          "severite": "high",
+          "direct": true,
+          "correctif": "protractor@6.0.0 (majeure)"
+        },
+        {
+          "nom": "sass-graph",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "scss-tokenizer",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "semver",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "serialize-javascript",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "shelljs",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "sigstore",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "socks",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "source-map-js",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "stylehacks",
+          "severite": "high",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "stylelint",
+          "severite": "high",
+          "direct": true,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "tinymce",
+          "severite": "high",
+          "direct": true,
+          "correctif": "tinymce@8.10.0 (majeure)"
+        },
+        {
+          "nom": "tmp",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular-eslint/schematics@22.6.0 (majeure)"
+        },
+        {
+          "nom": "trim-newlines",
+          "severite": "high",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "tuf-js",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "ua-parser-js",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "webdriver-manager",
+          "severite": "high",
+          "direct": false,
+          "correctif": "protractor@6.0.0 (majeure)"
+        },
+        {
+          "nom": "webpack-dev-middleware",
+          "severite": "high",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "ws",
+          "severite": "high",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@angular-devkit/architect",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@angular-devkit/build-webpack",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@angular-devkit/core",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@angular-devkit/schematics",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@babel/helpers",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "@babel/runtime",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@schematics/angular",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "ajv",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular/cli@21.2.28 (majeure)"
+        },
+        {
+          "nom": "anymatch",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "chokidar",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "ckeditor",
+          "severite": "moderate",
+          "direct": true,
+          "correctif": "ckeditor@4.12.1"
+        },
+        {
+          "nom": "codelyzer",
+          "severite": "moderate",
+          "direct": true,
+          "correctif": "codelyzer@0.0.28 (majeure)"
+        },
+        {
+          "nom": "colorguard",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "copy-webpack-plugin",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "echarts",
+          "severite": "moderate",
+          "direct": true,
+          "correctif": "echarts@6.1.0 (majeure)"
+        },
+        {
+          "nom": "esbuild",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "follow-redirects",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "morgan",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "ms",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "postcss-less",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "postcss-modules-local-by-default",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "postcss-modules-scope",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "postcss-reporter",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "postcss-scss",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "postcss-selector-parser",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "qs",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "readdirp",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "selenium-webdriver",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "protractor@6.0.0 (majeure)"
+        },
+        {
+          "nom": "socket.io",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "sockjs",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "source-map-resolve",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "sugarss",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "stylelint@17.16.0 (majeure)"
+        },
+        {
+          "nom": "tempfile",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "conventional-changelog-cli@5.0.0 (majeure)"
+        },
+        {
+          "nom": "terser-webpack-plugin",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "tough-cookie",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "uuid",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "node-sass@9.0.0 (majeure)"
+        },
+        {
+          "nom": "webpack",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "webpack-dev-server",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "word-wrap",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "xml2js",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "protractor@6.0.0 (majeure)"
+        },
+        {
+          "nom": "yaml",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "zrender",
+          "severite": "moderate",
+          "direct": false,
+          "correctif": "echarts@6.1.0 (majeure)"
+        },
+        {
+          "nom": "@angular-eslint/schematics",
+          "severite": "low",
+          "direct": true,
+          "correctif": "@angular-eslint/schematics@22.6.0 (majeure)"
+        },
+        {
+          "nom": "@angular/compiler-cli",
+          "severite": "low",
+          "direct": true,
+          "correctif": "@angular/compiler-cli@21.2.25 (majeure)"
+        },
+        {
+          "nom": "@babel/core",
+          "severite": "low",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "@tootallnate/once",
+          "severite": "low",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "cookie",
+          "severite": "low",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "diff",
+          "severite": "low",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "external-editor",
+          "severite": "low",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "inquirer",
+          "severite": "low",
+          "direct": false,
+          "correctif": "@angular-devkit/build-angular@21.2.28 (majeure)"
+        },
+        {
+          "nom": "on-headers",
+          "severite": "low",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "send",
+          "severite": "low",
+          "direct": false,
+          "correctif": "@compodoc/compodoc@1.2.1"
+        },
+        {
+          "nom": "serve-static",
+          "severite": "low",
+          "direct": false,
+          "correctif": "oui"
+        },
+        {
+          "nom": "webdriver-js-extender",
+          "severite": "low",
+          "direct": false,
+          "correctif": "protractor@6.0.0 (majeure)"
+        }
+      ],
+      "directs": 20
+    },
+    "stats": null,
+    "lighthouse": []
+  }
+}

@@ -1,0 +1,5 @@
+{ "inputs": {}, "outputs": {
+  "main-ABC.js": { "bytes": 1400000, "entryPoint": "src/main.ts" },
+  "polyfills-DEF.js": { "bytes": 40000, "entryPoint": "src/polyfills.ts" },
+  "chunk-GHI.js": { "bytes": 300000 },
+  "styles-JKL.css": { "bytes": 90000 } } }

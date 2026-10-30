@@ -1,0 +1,7 @@
+{ "auditReportVersion": 2,
+  "vulnerabilities": {
+    "lodash": { "name": "lodash", "severity": "critical", "isDirect": true, "via": [], "fixAvailable": true },
+    "postcss": { "name": "postcss", "severity": "moderate", "isDirect": false, "via": [], "fixAvailable": { "name": "@angular-devkit/build-angular", "version": "17.0.0", "isSemVerMajor": true } },
+    "ws": { "name": "ws", "severity": "high", "isDirect": false, "via": [], "fixAvailable": false }
+  },
+  "metadata": { "vulnerabilities": { "info": 0, "low": 0, "moderate": 1, "high": 1, "critical": 1, "total": 3 } } }

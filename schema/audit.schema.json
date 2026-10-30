@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://consigne.dev/schemas/audit-angular-1.json",
+  "title": "audit.json (audit-angular 1.x)",
+  "description": "Résultat d'un audit statique d'application Angular. Ne contient jamais de code source : mesures, constats et emplacements (fichier, ligne), supprimables avec --sans-chemins. Lu aussi par l'outil de maintenance Angular (DEV-603).",
+  "type": "object",
+  "required": ["outil", "date", "projet", "angular", "dependencies", "indicateurs", "scores", "findings", "estimation"],
+  "properties": {
+    "outil": { "type": "object", "required": ["nom", "version"], "properties": { "nom": { "const": "audit-angular" }, "version": { "type": "string" } } },
+    "date": { "type": "string", "format": "date", "description": "Date de référence (calendrier de support)." },
+    "projet": { "type": "object", "properties": { "nom": { "type": ["string", "null"] }, "fichiers": { "type": "integer" } } },
+    "angular": { "type": "object", "required": ["version", "major"], "properties": { "version": { "type": ["string", "null"], "examples": ["15.2.10"] }, "major": { "type": ["integer", "null"] } } },
+    "versions": { "type": "object", "properties": { "typescript": { "type": ["string", "null"] }, "rxjs": { "type": ["string", "null"] }, "zonejs": { "type": ["string", "null"] }, "node": { "type": ["string", "null"] } } },
+    "sourceVersions": { "type": ["string", "null"], "description": "Fichier de verrouillage lu (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lock) ou null." },
+    "configuration": { "type": "object" },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "object", "required": ["name", "version", "dev"], "properties": { "name": { "type": "string" }, "version": { "type": ["string", "null"] }, "dev": { "type": "boolean" } } }
+    },
+    "indicateurs": { "type": "object", "description": "Mesures brutes et pourcentages (pct*) de préparation." },
+    "scores": {
+      "type": "object",
+      "required": ["versions", "migration", "qualite", "securite", "performance", "global"],
+      "additionalProperties": { "type": "integer", "minimum": 0, "maximum": 100 }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "severity", "axe", "title", "detail", "recommandation", "count", "emplacements"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Z]{3}-[\\w@/.-]+$", "description": "Stable d'une version à l'autre (comparaison entre audits)." },
+          "severity": { "enum": ["P1", "P2", "P3", "P4"] },
+          "axe": { "enum": ["versions", "migration", "qualite", "securite", "performance"] },
+          "title": { "type": "string" },
+          "detail": { "type": "string" },
+          "recommandation": { "type": "string" },
+          "count": { "type": "integer", "minimum": 1 },
+          "emplacements": { "type": "array", "maxItems": 25, "items": { "type": "object", "required": ["fichier"], "properties": { "fichier": { "type": "string" }, "ligne": { "type": ["integer", "null"] }, "info": { "type": "string" } } } }
+        }
+      }
+    },
+    "estimation": {
+      "type": "object",
+      "required": ["lots", "total", "hypotheses"],
+      "properties": {
+        "lots": { "type": "array", "items": { "type": "object", "required": ["id", "titre", "bas", "haut", "base"] } },
+        "total": { "type": "object", "required": ["bas", "haut"], "properties": { "bas": { "type": "number" }, "haut": { "type": "number" } } },
+        "hypotheses": { "type": "string" }
+      }
+    }
+  }
+}
